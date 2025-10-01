@@ -188,7 +188,9 @@ export function ErrorSpotterQuiz({
 		if (userErrorTypeMatches) {
 			currentScore++;
 			const typeDesc =
-				answer.errorType === "syntax" ? "syntax error so wouldn't run" : "logic error so runs differently";
+				answer.errorType === "syntax"
+					? "syntax error so wouldn't run"
+					: "logic error so runs differently";
 			feedbackItems.push(
 				<div key="type" className="bg-white/50 p-3 rounded mb-2">
 					<span className="mr-2">✓</span>
@@ -527,7 +529,7 @@ export function ErrorSpotterQuiz({
 											(c) => c.id === currentQuestion.category,
 										);
 										const difficultyLevel = categoryInfo?.level || 1;
-										const { pointsEarned, pointsPossible } = calculatePoints(
+										const { pointsEarned } = calculatePoints(
 											score,
 											difficultyLevel,
 										);
