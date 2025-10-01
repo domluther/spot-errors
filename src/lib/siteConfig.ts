@@ -27,10 +27,10 @@ export interface Level {
 	minAccuracy: number;
 }
 
-/** OCR J277 Error Spotter site configuration */
+/** OCR ERL Error Spotter site configuration */
 export const SITE_CONFIG: SiteConfig = {
 	siteKey: "error-spotter",
-	title: "OCR J277 Error Spotter",
+	title: "OCR ERL Error Spotter",
 	subtitle: "Find and fix syntax and logic errors in code",
 	icon: "🔍",
 	scoring: {
@@ -43,14 +43,14 @@ export const SITE_CONFIG: SiteConfig = {
 				minAccuracy: 0,
 			},
 			{
-				emoji: "�",
+				emoji: "🐛",
 				title: "Error Finder",
 				description: "Spotting those pesky bugs!",
 				minPoints: 5,
 				minAccuracy: 0,
 			},
 			{
-				emoji: "�",
+				emoji: "🔧",
 				title: "Code Fixer",
 				description: "Not just finding bugs, but fixing them too!",
 				minPoints: 12,

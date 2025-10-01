@@ -261,7 +261,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program checks if a number is positive, negative, or zero and displays the appropriate message.",
 		code: [
-			'num = input("Enter a number")',
+			'num = int(input("Enter a number"))',
 			"if num > 0 then",
 			'    print("Positive")',
 			"else if num < 0 then",
@@ -1066,7 +1066,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program checks if a number is positive, negative, or zero and displays the appropriate message.",
 		code: [
-			'num = input("Enter a number")',
+			'num = int(input("Enter a number"))',
 			"if num > 0 then",
 			'    print("Positive")',
 			"elseif num = 0 then",

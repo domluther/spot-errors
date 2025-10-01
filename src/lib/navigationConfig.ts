@@ -1,7 +1,7 @@
 /**
- * Global Navigation Configuration for Programming Practice Sites
+ * Global Navigation Configuration for GCSE Computer Science Practice Sites
  *
- * This file contains the navigation menu that appears across programming practice sites.
+ * This file contains the navigation menu that appears across OCR J277 practice sites.
  * It's separated from siteConfig.ts because navigation is global, not site-specific.
  */
 
@@ -14,7 +14,7 @@ export interface NavMenuItem {
 }
 
 /**
- * Global programming navigation menu
+ * Global GCSE Computer Science navigation menu
  * This appears in the dropdown navigation across all sites
  */
 export const GCSE_NAVIGATION_MENU: NavMenuItem[] = [
@@ -54,6 +54,13 @@ export const GCSE_NAVIGATION_MENU: NavMenuItem[] = [
 		keywords: ["ocr-fundamentals", "programming"],
 	},
 	{
+		title: "2.2 - Error Spotter",
+		description: "Find and fix syntax and logic errors",
+		url: "https://spot-errors.netlify.app/",
+		id: "error-spotter",
+		keywords: ["spot-errors", "error", "spotter", "debug"],
+	},
+	{
 		title: "2.2 - Programming Practice",
 		description: "Input/output and basic programming concepts",
 		url: "https://input-output-practice.netlify.app/",
@@ -85,5 +92,5 @@ export function detectCurrentSite(): string {
 		}
 	}
 
-	return "programming-fundamentals"; // Default fallback
+	return "error-spotter"; // Default fallback
 }

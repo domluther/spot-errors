@@ -1,5 +1,5 @@
 /**
- * Programming Fundamentals Component Library
+ * OCR J277 Error Spotter Component Library
  * Export all reusable components for easy importing
  */
 
@@ -9,7 +9,6 @@ export { ErrorSpotterQuiz } from "./ErrorSpotterQuiz";
 export { Footer } from "./Footer";
 export { Header } from "./Header";
 export { ModeMenu } from "./ModeMenu";
-// export { QuizComponent } from "./old_QuizComponent"; // Old component - no longer needed
 export type {
 	QuizButtonProps,
 	QuizButtonSize,
@@ -30,7 +29,7 @@ export { ThemeToggle } from "./theme-toggle";
  * import {
  *   SiteLayout,
  *   SharedLayout,
- *   QuizComponent,
+ *   ErrorSpotterQuiz,
  *   ModeMenu,
  *   StatsModal,
  *   QuizButton,
