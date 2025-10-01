@@ -8,8 +8,9 @@ export interface ErrorSpotterQuestion {
 		lineNumber: number;
 		errorType: "syntax" | "logic";
 		corrections: string[];
-		explanation?: string;
+		explanation: string;
 	};
+	category: "input-output" | "operators" | "variables" | "selection"  | "strings" | "iteration-for" | "iteration-while" | "iteration-do-until" | "switch" | "arrays" | "subprograms" | "files" ;
 }
 
 export interface QuizMode {
@@ -44,7 +45,8 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                     errorType: 'syntax',
                     corrections: ['    print("odd")'],
                     explanation: 'The print command is misspelled as "pritn".'
-                }
+                },
+                category: 'selection'
             },
             {
                 description: "This program asks the user to enter two numbers, adds them together, and checks if the total is 10 or more. It should display 'success' if the total is at least 10, or 'warning' if it's less than 10.",
@@ -61,8 +63,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 3,
                     errorType: 'logic',
-                    corrections: ['total = num1 + num2', 'total = num2 + num1']
-                }
+                    corrections: ['total = num1 + num2', 'total = num2 + num1'],
+                    explanation: 'The calculation adds num1 twice instead of adding num1 and num2 together.'
+                },
+                category: 'selection'
             },
             {
                 description: "This program asks for a password and checks if it matches 'secret123'. If correct, it displays 'Access granted', otherwise 'Access denied'.",
@@ -77,8 +81,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'syntax',
-                    corrections: ['if password == "secret123" then']
-                }
+                    corrections: ['if password == "secret123" then'],
+                    explanation: 'The comparison operator should be == (equality) not = (assignment).'
+                },
+                category: 'selection'
             },
             {
                 description: "This program calculates the area of a rectangle by multiplying length and width, then displays the result.",
@@ -92,8 +98,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 5,
                     errorType: 'syntax',
-                    corrections: ['print(area)']
-                }
+                    corrections: ['print(area)'],
+                    explanation: 'The print statement is missing its closing parenthesis.'
+                },
+                category: 'input-output'
             },
             {
                 description: "This program counts from 1 to 5 and displays each number.",
@@ -106,8 +114,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 3,
                     errorType: 'syntax',
-                    corrections: ['next i']
-                }
+                    corrections: ['next i'],
+                    explanation: 'For loops should end with "next i" not "endfor".'
+                },
+                category: 'iteration-for'
             },
             {
                 description: "This program checks if a student has passed an exam. A pass requires a score of 40 or more.",
@@ -122,8 +132,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'logic',
-                    corrections: ['if score >= 40 then']
-                }
+                    corrections: ['if score >= 40 then'],
+                    explanation: 'The condition should be >= (greater than or equal) to include 40 as a pass.'
+                },
+                category: 'selection'
             },
             {
                 description: "This program asks the user for their age and checks if they are an adult (18 or over). It should display 'Adult' or 'Minor' accordingly.",
@@ -138,8 +150,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 4,
                     errorType: 'syntax',
-                    corrections: ['else']
-                }
+                    corrections: ['else'],
+                    explanation: 'The else keyword is misspelled as "els".'
+                },
+                category: 'selection'
             },
             {
                 description: "This program calculates a 10% discount on a price and displays the discounted price.",
@@ -153,8 +167,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 3,
                     errorType: 'logic',
-                    corrections: ['newprice = price - discount']
-                }
+                    corrections: ['newprice = price - discount'],
+                    explanation: 'The discount should be subtracted from the price, not added to it.'
+                },
+                category: 'operators'
             },
             {
                 description: "This program displays a welcome message three times using a loop.",
@@ -167,8 +183,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 4,
                     errorType: 'syntax',
-                    corrections: ['print("Finished")']
-                }
+                    corrections: ['print("Finished")'],
+                    explanation: 'The print statement is missing its closing parenthesis.'
+                },
+                category: 'iteration-for'
             },
             {
                 description: "This program asks for a temperature in Celsius and converts it to Fahrenheit using the formula F = C * 9/5 + 32.",
@@ -181,8 +199,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 4,
                     errorType: 'syntax',
-                    corrections: ['print(fahrenheit)']
-                }
+                    corrections: ['print(fahrenheit)'],
+                    explanation: 'The variable name "fahrenheit" is misspelled as "celsuis".'
+                },
+                category: 'input-output'
             },
             {
                 description: "This program asks the user to input their name and then displays a personalized greeting message.",
@@ -193,8 +213,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'syntax',
-                    corrections: ['print("Hello " + name)']
-                }
+                    corrections: ['print("Hello " + name)'],
+                    explanation: 'The print statement is missing its closing parenthesis.'
+                },
+                category: 'input-output'
             },
             {
                 description: "This program calculates the average of three test scores by adding them together and dividing by 3.",
@@ -209,8 +231,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 6,
                     errorType: 'syntax',
-                    corrections: ['print(average)']
-                }
+                    corrections: ['print(average)'],
+                    explanation: 'The variable name "average" is misspelled as "averge".'
+                },
+                category: 'input-output'
             },
             {
                 description: "This program checks if a number is positive, negative, or zero and displays the appropriate message.",
@@ -227,8 +251,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 4,
                     errorType: 'syntax',
-                    corrections: ['elseif num < 0 then']
-                }
+                    corrections: ['elseif num < 0 then'],
+                    explanation: 'The elseif keyword should be written as one word, not "else if".'
+                },
+                category: 'selection'
             },
             {
                 description: "This program creates a function that returns the square of a number (number multiplied by itself).",
@@ -243,8 +269,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 4,
                     errorType: 'syntax',
-                    corrections: ['endfunction']
-                }
+                    corrections: ['endfunction'],
+                    explanation: 'Functions should end with "endfunction", not "endprocedure".'
+                },
+                category: 'subprograms'
             },
             {
                 description: "This program opens a file called 'data.txt', reads all lines from it, and displays them.",
@@ -258,8 +286,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 5,
                     errorType: 'syntax',
-                    corrections: ['f.close()']
-                }
+                    corrections: ['f.close()'],
+                    explanation: 'The close method needs parentheses to be called correctly.'
+                },
+                category: 'files'
             },
             {
                 description: "This program generates a random number between 1 and 100 and asks the user to guess it. It tells them if their guess is too high.",
@@ -273,8 +303,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 4,
                     errorType: 'logic',
-                    corrections: ['    print("Too high")']
-                }
+                    corrections: ['    print("Too high")'],
+                    explanation: 'If the guess is greater than the target, the message should be "Too high" not "Too low".'
+                },
+                category: 'selection'
             },
             {
                 description: "This program asks for a username and checks if it's at least 5 characters long. If it is, it accepts it, otherwise it rejects it.",
@@ -289,8 +321,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 5,
                     errorType: 'logic',
-                    corrections: ['    print("Username too short")']
-                }
+                    corrections: ['    print("Username too short")'],
+                    explanation: 'If the username is less than 5 characters, it should say "too short" not "too long".'
+                },
+                category: 'strings'
             },
             {
                 description: "This program creates an array of 5 scores and assigns the value 100 to the first element (index 0).",
@@ -302,11 +336,13 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'logic',
-                    corrections: ['scores[0] = 100']
-                }
+                    corrections: ['scores[0] = 100'],
+                    explanation: 'To assign to the first element (index 0), use scores[0] not scores[1].'
+                },
+                category: 'arrays'
             },
             {
-                description: "This program converts a string '42' to an integer and adds 8 to it, then displays the result.",
+                description: "This program casts a string '42' to an integer and adds 8 to it, then displays the result.",
                 code: [
                     'numStr = "42"',
                     'numInt = int(numStr)',
@@ -316,8 +352,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 4,
                     errorType: 'syntax',
-                    corrections: ['print(result)']
-                }
+                    corrections: ['print(result)'],
+                    explanation: 'The print statement is missing its closing parenthesis.'
+                },
+                category: 'input-output'
             },
             {
                 description: "This program repeatedly asks for a password until the user enters 'admin123'.",
@@ -331,8 +369,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'syntax',
-                    corrections: ['while password != "admin123" do', 'while password != "admin123" then']
-                }
+                    corrections: ['while password != "admin123" do', 'while password != "admin123" then'],
+                    explanation: 'While loops require "do" or "then" after the condition.'
+                },
+                category: 'iteration-while'
             },
             {
                 description: "This program uses a switch statement to display a message based on the day of the week. For 'Mon' it should display 'Monday'.",
@@ -348,8 +388,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 3,
                     errorType: 'syntax',
-                    corrections: ['    case "Mon":']
-                }
+                    corrections: ['    case "Mon":'],
+                    explanation: 'Each case statement must end with a colon.'
+                },
+                category: 'switch'
             },
             {
                 description: "This program calculates the perimeter of a square by multiplying the side length by 4.",
@@ -362,8 +404,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'logic',
-                    corrections: ['perimeter = side * 4']
-                }
+                    corrections: ['perimeter = side * 4'],
+                    explanation: 'The perimeter formula requires multiplication (*), not addition (+).'
+                },
+                category: 'operators'
             },
             {
                 description: "This program checks if a person is eligible to vote (age 18 or over) and displays 'Eligible' or 'Not eligible'.",
@@ -378,8 +422,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'syntax',
-                    corrections: ['if age >= 18 then']
-                }
+                    corrections: ['if age >= 18 then'],
+                    explanation: 'If statements require "then" after the condition.'
+                },
+                category: 'selection'
             },
             {
                 description: "This program creates a constant for VAT rate (20%) and calculates the VAT on a price, then displays the total price including VAT.",
@@ -394,8 +440,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 6,
                     errorType: 'syntax',
-                    corrections: ['print(total)']
-                }
+                    corrections: ['print(total)'],
+                    explanation: 'The variable name "total" is misspelled as "totl".'
+                },
+                category: 'input-output'
             },
             {
                 description: "This program uses a do-until loop to keep asking for a number until the user enters a number greater than 10.",
@@ -408,8 +456,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 3,
                     errorType: 'syntax',
-                    corrections: ['until num > 10']
-                }
+                    corrections: ['until num > 10'],
+                    explanation: 'Do-until loops should end with "until" not "while".'
+                },
+                category: 'iteration-do-until'
             },
             {
                 description: "This program extracts the first 3 characters from a string and displays them.",
@@ -421,8 +471,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'logic',
-                    corrections: ['first3 = text.left(3)']
-                }
+                    corrections: ['first3 = text.left(3)'],
+                    explanation: 'To get the first 3 characters, use left(3) not right(3).'
+                },
+                category: 'strings'
             },
             {
                 description: "This program converts a character to its ASCII code and displays it.",
@@ -435,8 +487,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'logic',
-                    corrections: ['code = ASC(char)']
-                }
+                    corrections: ['code = ASC(char)'],
+                    explanation: 'ASC converts a character to ASCII code; CHR converts ASCII code to character.'
+                },
+                category: 'strings'
             },
             {
                 description: "This program creates a procedure that displays 'Hello World' three times.",
@@ -451,8 +505,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 5,
                     errorType: 'syntax',
-                    corrections: ['endprocedure']
-                }
+                    corrections: ['endprocedure'],
+                    explanation: 'Procedures should end with "endprocedure", not "endfunction".'
+                },
+                category: 'subprograms'
             },
             {
                 description: "This program checks if a number is divisible by 3 by using the MOD operator. If there's no remainder, it displays 'Divisible by 3'.",
@@ -465,8 +521,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'syntax',
-                    corrections: ['if num MOD 3 == 0 then']
-                }
+                    corrections: ['if num MOD 3 == 0 then'],
+                    explanation: 'The comparison operator should be == (equality) not = (assignment).'
+                },
+                category: 'selection'
             },
             {
                 description: "This program converts a name to uppercase and displays it.",
@@ -478,8 +536,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'logic',
-                    corrections: ['upperName = name.upper']
-                }
+                    corrections: ['upperName = name.upper'],
+                    explanation: 'To convert to uppercase, use .upper not .lower.'
+                },
+                category: 'strings'
             },
             {
                 description: "This program calculates how many weeks are in a given number of days by dividing the days by 7.",
@@ -492,21 +552,25 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'logic',
-                    corrections: ['weeks = days DIV 7']
-                }
+                    corrections: ['weeks = days DIV 7'],
+                    explanation: 'DIV gives the quotient (whole number division); MOD gives the remainder.'
+                },
+                category: 'operators'
             },
             {
                 description: "This program creates a global variable for player lives (starting at 3) and displays it.",
                 code: [
-                    'global lives == 3',
+                    'lives == 3',
                     'print("Lives remaining")',
                     'print(lives)'
                 ],
                 answer: {
                     lineNumber: 1,
                     errorType: 'syntax',
-                    corrections: ['global lives = 3']
-                }
+                    corrections: ['lives = 3'],
+                    explanation: 'Variable assignment uses = (single equals) not == (double equals for comparison).'
+                },
+                category: 'variables'
             },
             {
                 description: "This program asks for two numbers and displays which one is larger. If they're equal, it displays 'Equal'.",
@@ -524,8 +588,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 5,
                     errorType: 'logic',
-                    corrections: ['elseif num1 < num2 then', 'elseif num2 > num1 then']
-                }
+                    corrections: ['elseif num1 < num2 then', 'elseif num2 > num1 then'],
+                    explanation: 'The second condition should check if num1 is less than num2, not greater than.'
+                },
+                category: 'selection'
             },
             {
                 description: "This program asks for a sentence and displays how many characters are in it.",
@@ -538,8 +604,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 4,
                     errorType: 'syntax',
-                    corrections: ['print(length)']
-                }
+                    corrections: ['print(length)'],
+                    explanation: 'The variable name "length" is misspelled as "lenght".'
+                },
+                category: 'input-output'
             },
             {
                 description: "This program extracts characters 3 to 6 from a string using substring and displays them.",
@@ -551,8 +619,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 3,
                     errorType: 'syntax',
-                    corrections: ['print(extract)']
-                }
+                    corrections: ['print(extract)'],
+                    explanation: 'The variable name "extract" is misspelled as "extact".'
+                },
+                category: 'strings'
             },
             {
                 description: "This program calculates 2 to the power of 5 and displays the result.",
@@ -565,8 +635,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 3,
                     errorType: 'logic',
-                    corrections: ['result = base ^ exponent']
-                }
+                    corrections: ['result = base ^ exponent'],
+                    explanation: 'The power operator is ^ (caret), not * (multiplication).'
+                },
+                category: 'operators'
             },
             {
                 description: "This program writes a line of text to a file called 'output.txt'.",
@@ -578,21 +650,25 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 1,
                     errorType: 'logic',
-                    corrections: ['f = open("output.txt")']
-                }
+                    corrections: ['f = open("output.txt")'],
+                    explanation: 'Use open() to open files, not newFile().'
+                },
+                category: 'files'
             },
             {
-                description: "This program converts a boolean value True to a string and displays it.",
+                description: "This program casts a boolean value True to a string and displays it.",
                 code: [
                     'value = True',
-                    'strValue = bool(value)',
+                    'strValue = int(value)',
                     'print(strValue)'
                 ],
                 answer: {
                     lineNumber: 2,
                     errorType: 'logic',
-                    corrections: ['strValue = str(value)']
-                }
+                    corrections: ['strValue = str(value)'],
+                    explanation: 'Use str() to cast to a string, not int().'
+                },
+                category: 'variables'
             },
             {
                 description: "This program checks if a student's grade is A, B, C, or D based on their score. 70+ is A, 60+ is B, 50+ is C, 40+ is D.",
@@ -611,8 +687,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 8,
                     errorType: 'logic',
-                    corrections: ['elseif score >= 40 then']
-                }
+                    corrections: ['elseif score >= 40 then'],
+                    explanation: 'The condition should be >= 40 (greater than or equal), not <= 40.'
+                },
+                category: 'selection'
             },
             // VARIATIONS - 40 more programs based on the originals
             {
@@ -628,8 +706,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'syntax',
-                    corrections: ['if num MOD 2 == 0 then']
-                }
+                    corrections: ['if num MOD 2 == 0 then'],
+                    explanation: 'The comparison operator should be == (equality) not = (assignment).'
+                },
+                category: 'selection'
             },
             {
                 description: "This program asks the user to enter a number. It then checks if the number is even or odd and displays the appropriate message.",
@@ -644,8 +724,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 6,
                     errorType: 'syntax',
-                    corrections: ['endif']
-                }
+                    corrections: ['endif'],
+                    explanation: 'The endif keyword should be one word, not "end if".'
+                },
+                category: 'selection'
             },
             {
                 description: "This program asks the user to enter two numbers, adds them together, and checks if the total is 10 or more. It should display 'success' if the total is at least 10, or 'warning' if it's less than 10.",
@@ -662,8 +744,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 3,
                     errorType: 'logic',
-                    corrections: ['total = num1 + num2', 'total = num2 + num1']
-                }
+                    corrections: ['total = num1 + num2', 'total = num2 + num1'],
+                    explanation: 'The calculation subtracts num2 from num1 instead of adding them together.'
+                },
+                category: 'selection'
             },
             {
                 description: "This program asks the user to enter two numbers, adds them together, and checks if the total is 10 or more. It should display 'success' if the total is at least 10, or 'warning' if it's less than 10.",
@@ -680,8 +764,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 4,
                     errorType: 'logic',
-                    corrections: ['if total >= 10 then']
-                }
+                    corrections: ['if total >= 10 then'],
+                    explanation: 'The condition should be >= (greater than or equal) to include 10 as success.'
+                },
+                category: 'selection'
             },
             {
                 description: "This program asks for a password and checks if it matches 'secret123'. If correct, it displays 'Access granted', otherwise 'Access denied'.",
@@ -696,8 +782,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 4,
                     errorType: 'syntax',
-                    corrections: ['else']
-                }
+                    corrections: ['else'],
+                    explanation: 'The else keyword is misspelled as "els".'
+                },
+                category: 'selection'
             },
             {
                 description: "This program calculates the area of a rectangle by multiplying length and width, then displays the result.",
@@ -711,8 +799,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 3,
                     errorType: 'logic',
-                    corrections: ['area = length * width', 'area = width * length']
-                }
+                    corrections: ['area = length * width', 'area = width * length'],
+                    explanation: 'The area formula requires multiplication (*), not addition (+).'
+                },
+                category: 'operators'
             },
             {
                 description: "This program calculates the area of a rectangle by multiplying length and width, then displays the result.",
@@ -726,8 +816,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 4,
                     errorType: 'syntax',
-                    corrections: ['print("Area is")']
-                }
+                    corrections: ['print("Area is")'],
+                    explanation: 'The print statement is missing its closing parenthesis.'
+                },
+                category: 'input-output'
             },
             {
                 description: "This program counts from 1 to 5 and displays each number.",
@@ -740,8 +832,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 3,
                     errorType: 'syntax',
-                    corrections: ['next i']
-                }
+                    corrections: ['next i'],
+                    explanation: 'For loops should end with "next i" not "endfor".'
+                },
+                category: 'iteration-for'
             },
             {
                 description: "This program counts from 1 to 5 and displays each number.",
@@ -754,8 +848,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 1,
                     errorType: 'syntax',
-                    corrections: ['for i = 1 to 5']
-                }
+                    corrections: ['for i = 1 to 5'],
+                    explanation: 'For loops should not have "do" after the range specification.'
+                },
+                category: 'iteration-for'
             },
             {
                 description: "This program checks if a student has passed an exam. A pass requires a score of 40 or more.",
@@ -770,8 +866,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 5,
                     errorType: 'syntax',
-                    corrections: ['    print("Fail")']
-                }
+                    corrections: ['    print("Fail")'],
+                    explanation: 'The string is missing its closing quote.'
+                },
+                category: 'input-output'
             },
             {
                 description: "This program checks if a student has passed an exam. A pass requires a score of 40 or more.",
@@ -786,8 +884,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 6,
                     errorType: 'syntax',
-                    corrections: ['endif']
-                }
+                    corrections: ['endif'],
+                    explanation: 'The endif keyword should be one word, not "end if".'
+                },
+                category: 'selection'
             },
             {
                 description: "This program asks the user for their age and checks if they are an adult (18 or over). It should display 'Adult' or 'Minor' accordingly.",
@@ -802,8 +902,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'logic',
-                    corrections: ['if age >= 18 then']
-                }
+                    corrections: ['if age >= 18 then'],
+                    explanation: 'The condition should be >= (greater than or equal) to include 18 as adult.'
+                },
+                category: 'selection'
             },
             {
                 description: "This program calculates a 10% discount on a price and displays the discounted price.",
@@ -817,8 +919,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'logic',
-                    corrections: ['discount = price * 0.1']
-                }
+                    corrections: ['discount = price * 0.1'],
+                    explanation: '10% is 0.1, not 0.01 (which is 1%).'
+                },
+                category: 'operators'
             },
             {
                 description: "This program calculates a 10% discount on a price and displays the discounted price.",
@@ -832,8 +936,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 3,
                     errorType: 'logic',
-                    corrections: ['newprice = price - discount']
-                }
+                    corrections: ['newprice = price - discount'],
+                    explanation: 'The discount should be subtracted from the price, not the other way around.'
+                },
+                category: 'operators'
             },
             {
                 description: "This program displays a welcome message three times using a loop.",
@@ -846,8 +952,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 4,
                     errorType: 'syntax',
-                    corrections: ['print("Finished")']
-                }
+                    corrections: ['print("Finished")'],
+                    explanation: 'The string is missing its opening quote.'
+                },
+                category: 'input-output'
             },
             {
                 description: "This program asks the user to input their name and then displays a personalized greeting message.",
@@ -858,8 +966,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'syntax',
-                    corrections: ['print("Hello " + name)']
-                }
+                    corrections: ['print("Hello " + name)'],
+                    explanation: 'String concatenation uses + not . (dot).'
+                },
+                category: 'input-output'
             },
             {
                 description: "This program asks the user to input their name and then displays a personalized greeting message.",
@@ -870,8 +980,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 1,
                     errorType: 'syntax',
-                    corrections: ['name = input("Enter your name")']
-                }
+                    corrections: ['name = input("Enter your name")'],
+                    explanation: 'The input function is misspelled as "imput".'
+                },
+                category: 'input-output'
             },
             {
                 description: "This program calculates the average of three test scores by adding them together and dividing by 3.",
@@ -886,8 +998,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 4,
                     errorType: 'logic',
-                    corrections: ['average = (score1 + score2 + score3) / 3']
-                }
+                    corrections: ['average = (score1 + score2 + score3) / 3'],
+                    explanation: 'The average formula requires division (/), not multiplication (*).'
+                },
+                category: 'operators'
             },
             {
                 description: "This program checks if a number is positive, negative, or zero and displays the appropriate message.",
@@ -904,8 +1018,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 4,
                     errorType: 'syntax',
-                    corrections: ['elseif num == 0 then']
-                }
+                    corrections: ['elseif num == 0 then'],
+                    explanation: 'The comparison operator should be == (equality) not = (assignment).'
+                },
+                category: 'selection'
             },
             {
                 description: "This program creates a function that returns the square of a number (number multiplied by itself).",
@@ -920,8 +1036,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'logic',
-                    corrections: ['    result = num * num']
-                }
+                    corrections: ['    result = num * num'],
+                    explanation: 'Squaring requires multiplication (*), not addition (+).'
+                },
+                category: 'subprograms'
             },
             {
                 description: "This program creates a function that returns the square of a number (number multiplied by itself).",
@@ -936,8 +1054,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 3,
                     errorType: 'syntax',
-                    corrections: ['    return(result)']
-                }
+                    corrections: ['    return(result)'],
+                    explanation: 'The return statement requires parentheses around the value.'
+                },
+                category: 'subprograms'
             },
             {
                 description: "This program opens a file called 'data.txt', reads all lines from it, and displays them.",
@@ -951,8 +1071,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 4,
                     errorType: 'syntax',
-                    corrections: ['endwhile']
-                }
+                    corrections: ['endwhile'],
+                    explanation: 'While loops should end with "endwhile", not "enddo".'
+                },
+                category: 'files'
             },
             {
                 description: "This program opens a file called 'data.txt', reads all lines from it, and displays them.",
@@ -967,8 +1089,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 6,
                     errorType: 'syntax',
-                    corrections: ['f.close()']
-                }
+                    corrections: ['f.close()'],
+                    explanation: 'The close method must be called on the file object using f.close().'
+                },
+                category: 'files'
             },
             {
                 description: "This program generates a random number between 1 and 100 and asks the user to guess it. It tells them if their guess is too high.",
@@ -982,8 +1106,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 3,
                     errorType: 'logic',
-                    corrections: ['if guess > target then']
-                }
+                    corrections: ['if guess > target then'],
+                    explanation: 'If the guess is less than the target, the message should be "Too low" not "Too high".'
+                },
+                category: 'selection'
             },
             {
                 description: "This program asks for a username and checks if it's at least 5 characters long. If it is, it accepts it, otherwise it rejects it.",
@@ -998,8 +1124,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'logic',
-                    corrections: ['if username.length >= 5 then']
-                }
+                    corrections: ['if username.length >= 5 then'],
+                    explanation: 'The condition should be >= to accept usernames with exactly 5 characters.'
+                },
+                category: 'strings'
             },
             {
                 description: "This program creates an array of 5 scores and assigns the value 100 to the first element (index 0).",
@@ -1011,8 +1139,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 1,
                     errorType: 'syntax',
-                    corrections: ['array scores[5]']
-                }
+                    corrections: ['array scores[5]'],
+                    explanation: 'Array declaration uses square brackets [], not parentheses ().'
+                },
+                category: 'arrays'
             },
             {
                 description: "This program creates an array of 5 scores and assigns the value 100 to the first element (index 0).",
@@ -1024,22 +1154,26 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'syntax',
-                    corrections: ['scores[0] = 100']
-                }
+                    corrections: ['scores[0] = 100'],
+                    explanation: 'Variable assignment uses = (single equals) not == (double equals for comparison).'
+                },
+                category: 'arrays'
             },
             {
-                description: "This program converts a string '42' to an integer and adds 8 to it, then displays the result.",
+                description: "This program casts a string '42' to an integer and adds 8 to it, then displays the result.",
                 code: [
-                    'numStr = "42"',
-                    'numInt = str(numStr)',
-                    'result = numInt + 8',
+                    'num = "42"',
+                    'num = str(num)',
+                    'result = num + 8',
                     'print(result)'
                 ],
                 answer: {
                     lineNumber: 2,
                     errorType: 'logic',
-                    corrections: ['numInt = int(numStr)']
-                }
+                    corrections: ['num = int(num)'],
+                    explanation: 'Use int() to cast to an integer, not str() which casts to a string.'
+                },
+                category: 'variables'
             },
             {
                 description: "This program repeatedly asks for a password until the user enters 'admin123'.",
@@ -1053,8 +1187,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'logic',
-                    corrections: ['while password != "admin123" do']
-                }
+                    corrections: ['while password != "admin123" do'],
+                    explanation: 'The loop should continue while the password is NOT equal (!=) to "admin123".'
+                },
+                category: 'iteration-while'
             },
             {
                 description: "This program uses a switch statement to display a message based on the day of the week. For 'Mon' it should display 'Monday'.",
@@ -1070,8 +1206,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 7,
                     errorType: 'syntax',
-                    corrections: ['endswitch']
-                }
+                    corrections: ['endswitch'],
+                    explanation: 'Switch statements should end with "endswitch", not "endcase".'
+                },
+                category: 'switch'
             },
             {
                 description: "This program calculates the perimeter of a square by multiplying the side length by 4.",
@@ -1084,8 +1222,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'logic',
-                    corrections: ['perimeter = side * 4']
-                }
+                    corrections: ['perimeter = side * 4'],
+                    explanation: 'The perimeter formula is side * 4, not side * side (which would be area).'
+                },
+                category: 'operators'
             },
             {
                 description: "This program checks if a person is eligible to vote (age 18 or over) and displays 'Eligible' or 'Not eligible'.",
@@ -1100,8 +1240,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'logic',
-                    corrections: ['if age >= 18 then']
-                }
+                    corrections: ['if age >= 18 then'],
+                    explanation: 'The condition should be >= (greater than or equal) to include 18 as eligible.'
+                },
+                category: 'selection'
             },
             {
                 description: "This program creates a constant for VAT rate (20%) and calculates the VAT on a price, then displays the total price including VAT.",
@@ -1116,8 +1258,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 1,
                     errorType: 'syntax',
-                    corrections: ['const VAT = 0.2']
-                }
+                    corrections: ['const VAT = 0.2'],
+                    explanation: 'Constants must be declared with the const keyword.'
+                },
+                category: 'variables'
             },
             {
                 description: "This program creates a constant for VAT rate (20%) and calculates the VAT on a price, then displays the total price including VAT.",
@@ -1132,8 +1276,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 4,
                     errorType: 'logic',
-                    corrections: ['total = price + vatAmount', 'total = vatAmount + price']
-                }
+                    corrections: ['total = price + vatAmount', 'total = vatAmount + price'],
+                    explanation: 'VAT should be added to the price, not subtracted.'
+                },
+                category: 'operators'
             },
             {
                 description: "This program uses a do-until loop to keep asking for a number until the user enters a number greater than 10.",
@@ -1146,8 +1292,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 3,
                     errorType: 'logic',
-                    corrections: ['until num > 10']
-                }
+                    corrections: ['until num > 10'],
+                    explanation: 'The loop should continue until the number is greater than 10, not less than or equal.'
+                },
+                category: 'iteration-do-until'
             },
             {
                 description: "This program extracts the first 3 characters from a string and displays them.",
@@ -1159,8 +1307,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'logic',
-                    corrections: ['first3 = text.left(3)']
-                }
+                    corrections: ['first3 = text.left(3)'],
+                    explanation: 'Use the left() method to get the first characters, not substring().'
+                },
+                category: 'strings'
             },
             {
                 description: "This program extracts the first 3 characters from a string and displays them.",
@@ -1172,8 +1322,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 3,
                     errorType: 'syntax',
-                    corrections: ['print(first3)']
-                }
+                    corrections: ['print(first3)'],
+                    explanation: 'The variable name "first3" is misspelled as "frst3".'
+                },
+                category: 'input-output'
             },
             {
                 description: "This program converts a character to its ASCII code and displays it.",
@@ -1186,8 +1338,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 3,
                     errorType: 'syntax',
-                    corrections: ['print("ASCII code is")']
-                }
+                    corrections: ['print("ASCII code is")'],
+                    explanation: 'The print statement is missing its closing parenthesis.'
+                },
+                category: 'input-output'
             },
             {
                 description: "This program creates a procedure that displays 'Hello World' three times.",
@@ -1202,8 +1356,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 4,
                     errorType: 'syntax',
-                    corrections: ['    next i']
-                }
+                    corrections: ['    next i'],
+                    explanation: 'For loops should end with "next i" not "endfor".'
+                },
+                category: 'subprograms'
             },
             {
                 description: "This program creates a procedure that displays 'Hello World' three times.",
@@ -1218,8 +1374,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 1,
                     errorType: 'syntax',
-                    corrections: ['procedure greet()']
-                }
+                    corrections: ['procedure greet()'],
+                    explanation: 'Procedure declarations require parentheses even with no parameters.'
+                },
+                category: 'subprograms'
             },
             {
                 description: "This program checks if a number is divisible by 3 by using the MOD operator. If there's no remainder, it displays 'Divisible by 3'.",
@@ -1232,8 +1390,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'logic',
-                    corrections: ['if num MOD 3 == 0 then']
-                }
+                    corrections: ['if num MOD 3 == 0 then'],
+                    explanation: 'MOD gives the remainder; DIV gives the quotient.'
+                },
+                category: 'selection'
             },
             {
                 description: "This program converts a name to uppercase and displays it.",
@@ -1245,8 +1405,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'syntax',
-                    corrections: ['upperName = name.upper']
-                }
+                    corrections: ['upperName = name.upper'],
+                    explanation: 'The upper property does not use parentheses.'
+                },
+                category: 'strings'
             },
             {
                 description: "This program calculates how many weeks are in a given number of days by dividing the days by 7.",
@@ -1259,21 +1421,25 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'logic',
-                    corrections: ['weeks = days DIV 7']
-                }
+                    corrections: ['weeks = days DIV 7'],
+                    explanation: 'Use DIV for integer division to get whole weeks, not / which gives decimal.'
+                },
+                category: 'operators'
             },
             {
                 description: "This program creates a global variable for player lives (starting at 3) and displays it.",
                 code: [
-                    'global lives = 3',
+                    'lives = 3',
                     'print("Lives remaining"',
                     'print(lives)'
                 ],
                 answer: {
                     lineNumber: 2,
                     errorType: 'syntax',
-                    corrections: ['print("Lives remaining")']
-                }
+                    corrections: ['print("Lives remaining")'],
+                    explanation: 'The print statement is missing its closing parenthesis.'
+                },
+                category: 'input-output'
             },
             {
                 description: "This program asks for two numbers and displays which one is larger. If they're equal, it displays 'Equal'.",
@@ -1291,8 +1457,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 5,
                     errorType: 'logic',
-                    corrections: ['elseif num1 < num2 then', 'elseif num2 > num1 then']
-                }
+                    corrections: ['elseif num1 < num2 then', 'elseif num2 > num1 then'],
+                    explanation: 'The elseif should check if num1 is less than num2 for the second branch.'
+                },
+                category: 'selection'
             },
             {
                 description: "This program asks for a sentence and displays how many characters are in it.",
@@ -1305,8 +1473,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'logic',
-                    corrections: ['length = len(sentence)']
-                }
+                    corrections: ['length = len(sentence)'],
+                    explanation: 'Use the len() function to get string length, not the .length property.'
+                },
+                category: 'strings'
             },
             {
                 description: "This program extracts characters 3 to 6 from a string using substring and displays them.",
@@ -1318,8 +1488,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'syntax',
-                    corrections: ['extract = text.substring(3, 6)']
-                }
+                    corrections: ['extract = text.substring(3, 6)'],
+                    explanation: 'The substring method must be called on the text string object.'
+                },
+                category: 'strings'
             },
             {
                 description: "This program calculates 2 to the power of 5 and displays the result.",
@@ -1332,8 +1504,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 3,
                     errorType: 'logic',
-                    corrections: ['result = base ^ exponent']
-                }
+                    corrections: ['result = base ^ exponent'],
+                    explanation: 'The power operator is ^ (caret), not + (addition).'
+                },
+                category: 'operators'
             },
             {
                 description: "This program writes a line of text to a file called 'output.txt'.",
@@ -1345,11 +1519,13 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'syntax',
-                    corrections: ['f.writeLine("Hello File")']
-                }
+                    corrections: ['f.writeLine("Hello File")'],
+                    explanation: 'The method name should be writeLine (camelCase), not WriteLine (capital W).'
+                },
+                category: 'files'
             },
             {
-                description: "This program converts a boolean value True to a string and displays it.",
+                description: "This program casts a boolean value True to a string and displays it.",
                 code: [
                     'value = True',
                     'strValue = int(value)',
@@ -1358,8 +1534,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'logic',
-                    corrections: ['strValue = str(value)']
-                }
+                    corrections: ['strValue = str(value)'],
+                    explanation: 'Use str() to cast to a string, not int() which casts to an integer.'
+                },
+                category: 'variables'
             },
             {
                 description: "This program checks if a student's grade is A, B, C, or D based on their score. 70+ is A, 60+ is B, 50+ is C, 40+ is D.",
@@ -1378,8 +1556,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 4,
                     errorType: 'syntax',
-                    corrections: ['elseif score >= 60 then']
-                }
+                    corrections: ['elseif score >= 60 then'],
+                    explanation: 'The keyword should be "elseif" not "elif".'
+                },
+                category: 'selection'
             },
             {
                 description: "This program asks the user to enter a number. It then checks if the number is even or odd and displays the appropriate message.",
@@ -1394,8 +1574,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 4,
                     errorType: 'syntax',
-                    corrections: ['else']
-                }
+                    corrections: ['else'],
+                    explanation: 'Should use "else" not "elseif" when there is no condition.'
+                },
+                category: 'selection'
             },
             {
                 description: "This program asks the user to enter two numbers, adds them together, and checks if the total is 10 or more. It should display 'success' if the total is at least 10, or 'warning' if it's less than 10.",
@@ -1412,8 +1594,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 4,
                     errorType: 'syntax',
-                    corrections: ['if total >= 10 then']
-                }
+                    corrections: ['if total >= 10 then'],
+                    explanation: 'If statements require "then" after the condition.'
+                },
+                category: 'selection'
             },
             {
                 description: "This program counts from 1 to 10 and displays each number.",
@@ -1426,8 +1610,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 3,
                     errorType: 'syntax',
-                    corrections: ['next count']
-                }
+                    corrections: ['next count'],
+                    explanation: 'The loop variable name in "next" must match the one in the for statement.'
+                },
+                category: 'iteration-for'
             },
             {
                 description: "This program creates a procedure that adds two numbers and displays the result.",
@@ -1441,8 +1627,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 5,
                     errorType: 'syntax',
-                    corrections: ['addNumbers(5, 7)']
-                }
+                    corrections: ['addNumbers(5, 7)'],
+                    explanation: 'The procedure call is missing its closing parenthesis.'
+                },
+                category: 'subprograms'
             },
             {
                 description: "This program creates a function that doubles a number and returns the result.",
@@ -1457,8 +1645,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 3,
                     errorType: 'logic',
-                    corrections: ['    return(result)']
-                }
+                    corrections: ['    return(result)'],
+                    explanation: 'Functions must return a value, not print it.'
+                },
+                category: 'subprograms'
             },
             {
                 description: "This program repeatedly asks for a PIN until the user enters '1234'.",
@@ -1472,8 +1662,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 4,
                     errorType: 'syntax',
-                    corrections: ['until pin == "1234"']
-                }
+                    corrections: ['until pin == "1234"'],
+                    explanation: 'The comparison operator should be == (equality) not = (assignment).'
+                },
+                category: 'iteration-do-until'
             },
             {
                 description: "This program checks if a number is between 1 and 100 inclusive and displays an appropriate message.",
@@ -1488,8 +1680,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 6,
                     errorType: 'syntax',
-                    corrections: ['endif']
-                }
+                    corrections: ['endif'],
+                    explanation: 'If statements must end with "endif" not "end".'
+                },
+                category: 'selection'
             },
             {
                 description: "This program extracts the last 4 characters from a string and displays them.",
@@ -1501,8 +1695,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'logic',
-                    corrections: ['last4 = text.right(4)']
-                }
+                    corrections: ['last4 = text.right(4)'],
+                    explanation: 'Use right() to get the last characters, not left().'
+                },
+                category: 'strings'
             },
             {
                 description: "This program converts text to lowercase and displays it.",
@@ -1514,8 +1710,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'syntax',
-                    corrections: ['lowerText = text.lower']
-                }
+                    corrections: ['lowerText = text.lower'],
+                    explanation: 'The property name is "lower" not "lowercase".'
+                },
+                category: 'strings'
             },
             {
                 description: "This program creates a 2D array for storing a 3x3 grid and sets position [0,0] to 'X'.",
@@ -1527,11 +1725,13 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 1,
                     errorType: 'syntax',
-                    corrections: ['array grid[3, 3]']
-                }
+                    corrections: ['array grid[3, 3]'],
+                    explanation: 'Array dimensions should be separated by a comma, not separate brackets.'
+                },
+                category: 'arrays'
             },
             {
-                description: "This program reads a number as a string and converts it to a float, then adds 2.5 to it.",
+                description: "This program reads a number as a string and casts it to a float, then adds 2.5 to it.",
                 code: [
                     'numStr = input("Enter a decimal number")',
                     'numFloat = float(numStr)',
@@ -1541,8 +1741,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 4,
                     errorType: 'syntax',
-                    corrections: ['print(result)']
-                }
+                    corrections: ['print(result)'],
+                    explanation: 'The variable name "result" is misspelled as "reslt".'
+                },
+                category: 'input-output'
             },
             {
                 description: "This program calculates the quotient when dividing 17 by 5 (how many times 5 goes into 17).",
@@ -1555,8 +1757,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 3,
                     errorType: 'logic',
-                    corrections: ['quotient = dividend DIV divisor']
-                }
+                    corrections: ['quotient = dividend DIV divisor'],
+                    explanation: 'DIV gives the quotient; MOD gives the remainder.'
+                },
+                category: 'operators'
             },
             {
                 description: "This program calculates the remainder when dividing 17 by 5.",
@@ -1569,8 +1773,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 3,
                     errorType: 'logic',
-                    corrections: ['remainder = dividend MOD divisor']
-                }
+                    corrections: ['remainder = dividend MOD divisor'],
+                    explanation: 'MOD gives the remainder; DIV gives the quotient.'
+                },
+                category: 'operators'
             },
             {
                 description: "This program converts the ASCII code 65 to its corresponding character and displays it.",
@@ -1582,8 +1788,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'logic',
-                    corrections: ['character = CHR(code)']
-                }
+                    corrections: ['character = CHR(code)'],
+                    explanation: 'CHR converts code to character; ASC converts character to code.'
+                },
+                category: 'strings'
             },
             {
                 description: "This program converts the character 'A' to its ASCII code and displays it.",
@@ -1595,8 +1803,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'logic',
-                    corrections: ['asciiCode = ASC(char)']
-                }
+                    corrections: ['asciiCode = ASC(char)'],
+                    explanation: 'ASC converts character to code; CHR converts code to character.'
+                },
+                category: 'strings'
             },
             {
                 description: "This program opens a file, writes 'Hello' to it, and closes it.",
@@ -1608,8 +1818,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 3,
                     errorType: 'syntax',
-                    corrections: ['f.close()']
-                }
+                    corrections: ['f.close()'],
+                    explanation: 'The close method must be called on the file object.'
+                },
+                category: 'files'
             },
             {
                 description: "This program creates a new file called 'data.txt' and writes a line to it.",
@@ -1621,8 +1833,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 3,
                     errorType: 'syntax',
-                    corrections: ['f.close()']
-                }
+                    corrections: ['f.close()'],
+                    explanation: 'Methods require parentheses even with no arguments.'
+                },
+                category: 'files'
             },
             {
                 description: "This program generates a random integer between 1 and 6 (like a dice roll) and displays it.",
@@ -1634,8 +1848,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 3,
                     errorType: 'syntax',
-                    corrections: ['print(dice)']
-                }
+                    corrections: ['print(dice)'],
+                    explanation: 'The variable name "dice" is misspelled as "dic".'
+                },
+                category: 'input-output'
             },
             {
                 description: "This program checks if it's the weekend (Saturday or Sunday) and displays 'Weekend!' otherwise 'Weekday'.",
@@ -1650,8 +1866,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'syntax',
-                    corrections: ['if day == "Saturday" OR day == "Sunday" then']
-                }
+                    corrections: ['if day == "Saturday" OR day == "Sunday" then'],
+                    explanation: 'Both comparisons in an OR expression must use == not =.'
+                },
+                category: 'selection'
             },
             {
                 description: "This program checks if a password is NOT equal to 'admin' and displays 'Access denied' if true.",
@@ -1664,8 +1882,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'syntax',
-                    corrections: ['if NOT password == "admin" then']
-                }
+                    corrections: ['if NOT password == "admin" then'],
+                    explanation: 'The comparison operator should be == (equality) not = (assignment).'
+                },
+                category: 'selection'
             },
             {
                 description: "This program calculates the cube of a number (number to the power of 3).",
@@ -1678,8 +1898,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'logic',
-                    corrections: ['cube = num ^ 3']
-                }
+                    corrections: ['cube = num ^ 3'],
+                    explanation: 'The power operator is ^ (caret), not * (multiplication).'
+                },
+                category: 'operators'
             },
             {
                 description: "This program extracts a substring from position 2 to position 5 (inclusive) from a string.",
@@ -1691,8 +1913,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'syntax',
-                    corrections: ['sub = text.substring(2, 5)']
-                }
+                    corrections: ['sub = text.substring(2, 5)'],
+                    explanation: 'Method arguments must be separated by a comma.'
+                },
+                category: 'strings'
             },
             {
                 description: "This program counts from 10 down to 1 and displays each number (countdown).",
@@ -1705,8 +1929,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 1,
                     errorType: 'logic',
-                    corrections: ['for i = 10 to 1 step -1']
-                }
+                    corrections: ['for i = 10 to 1 step -1'],
+                    explanation: 'For loops counting down require "step -1".'
+                },
+                category: 'iteration-for'
             },
             {
                 description: "This program asks for an item price and quantity, calculates the total cost, and displays it.",
@@ -1720,8 +1946,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 5,
                     errorType: 'syntax',
-                    corrections: ['print(total)']
-                }
+                    corrections: ['print(total)'],
+                    explanation: 'The variable name "total" is misspelled as "totla".'
+                },
+                category: 'input-output'
             },
             {
                 description: "This program checks if a year is a leap year (divisible by 4) and displays an appropriate message.",
@@ -1736,11 +1964,13 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 6,
                     errorType: 'syntax',
-                    corrections: ['endif']
-                }
+                    corrections: ['endif'],
+                    explanation: 'If statements must end with "endif" as one word, not "end if".'
+                },
+                category: 'selection'
             },
             {
-                description: "This program converts a number to a string and displays it with text.",
+                description: "This program casts a number to a string and displays it with text.",
                 code: [
                     'num = 42',
                     'numStr = string(num)',
@@ -1749,8 +1979,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'syntax',
-                    corrections: ['numStr = str(num)']
-                }
+                    corrections: ['numStr = str(num)'],
+                    explanation: 'The function name is "str" not "string".'
+                },
+                category: 'variables'
             },
             {
                 description: "This program calculates the area of a circle using the formula π × r².",
@@ -1764,8 +1996,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 3,
                     errorType: 'logic',
-                    corrections: ['area = pi * radius * radius', 'area = pi * radius ^ 2']
-                }
+                    corrections: ['area = pi * radius * radius', 'area = pi * radius ^ 2'],
+                    explanation: 'The formula for circle area requires radius squared (r²), not just radius.'
+                },
+                category: 'operators'
             },
             {
                 description: "This program uses a switch statement to display the number of days in a month.",
@@ -1781,8 +2015,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 2,
                     errorType: 'syntax',
-                    corrections: ['switch month:']
-                }
+                    corrections: ['switch month:'],
+                    explanation: 'Switch statements require a colon after the variable.'
+                },
+                category: 'switch'
             },
             {
                 description: "This program creates an array of names and displays the second element (index 1).",
@@ -1796,7 +2032,9 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
                 answer: {
                     lineNumber: 5,
                     errorType: 'syntax',
-                    corrections: ['print(names[1])']
-                }
+                    corrections: ['print(names[1])'],
+                    explanation: 'Array elements are accessed with square brackets [], not parentheses ().'
+                },
+                category: 'arrays'
             }
         ];
