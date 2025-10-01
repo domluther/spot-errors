@@ -45,7 +45,7 @@ export function StatsModal({
 	if (!isOpen) return null;
 
 	const overallStats = scoreManager.getOverallStats();
-	const allModeStats = scoreManager.getAllModeStats();
+	const categoryStats = scoreManager.getCategoryStats();
 
 	const handleResetScores = () => {
 		if (
@@ -206,47 +206,65 @@ export function StatsModal({
 								</CardHeader>
 								<CardContent className="px-2">
 									<div className="space-y-4">
-										{Object.entries(allModeStats).map(([mode, stats]) => {
-											if (!stats || stats.attempts === 0) return null;
+										{Object.entries(categoryStats).map(
+											([categoryId, stats]) => {
+												if (!stats || stats.attempts === 0) return null;
 
-											const accuracy = Math.round(
-												(stats.correct / stats.attempts) * 100,
-											);
+												const accuracy = Math.round(
+													(stats.correct / stats.attempts) * 100,
+												);
 
-											return (
-												<div
-													key={mode}
-													className="flex items-center justify-between p-4 bg-gray-100 rounded-lg"
-												>
-													<div>
-														<div className="text-lg font-semibold">
-															{mode === "none" ? "Invalid Items" : mode}
+												// Map category IDs to friendly labels
+												const categoryLabels: Record<string, string> = {
+													"input-output": "Input/Output",
+													operators: "Operators",
+													variables: "Variables",
+													selection: "Selection (If/Else)",
+													strings: "String methods",
+													"iteration-for": "Iteration (For)",
+													"iteration-while": "Iteration (While)",
+													"iteration-do-until": "Iteration (Do-Until)",
+													switch: "Selection (Switch)",
+													arrays: "Arrays",
+													subprograms: "Functions & Procedures",
+													files: "File Operations",
+												};
+
+												return (
+													<div
+														key={categoryId}
+														className="flex items-center justify-between p-4 bg-gray-100 rounded-lg"
+													>
+														<div>
+															<div className="text-lg font-semibold">
+																{categoryLabels[categoryId] || categoryId}
+															</div>
+															<div className="text-sm text-gray-600">
+																{stats.correct} correct / {stats.attempts}{" "}
+																attempts • {stats.points} points
+															</div>
 														</div>
-														<div className="text-sm text-gray-600">
-															{stats.correct} correct out of {stats.attempts}{" "}
-															attempts
+														<div className="text-right">
+															<div
+																className={cn(
+																	"text-2xl font-bold",
+																	accuracy >= 80
+																		? "text-green-600"
+																		: accuracy >= 60
+																			? "text-yellow-600"
+																			: "text-red-600",
+																)}
+															>
+																{Math.round(accuracy)}%
+															</div>
+															<div className="text-xs text-gray-500">
+																accuracy
+															</div>
 														</div>
 													</div>
-													<div className="text-right">
-														<div
-															className={cn(
-																"text-2xl font-bold",
-																accuracy >= 80
-																	? "text-green-600"
-																	: accuracy >= 60
-																		? "text-yellow-600"
-																		: "text-red-600",
-															)}
-														>
-															{Math.round(accuracy)}%
-														</div>
-														<div className="text-xs text-gray-500">
-															accuracy
-														</div>
-													</div>
-												</div>
-											);
-										})}
+												);
+											},
+										)}
 									</div>
 								</CardContent>
 							</Card>

@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { SharedLayout, ErrorSpotterQuiz } from "@/components";
+import { ErrorSpotterQuiz, SharedLayout } from "@/components";
 
 export const Route = createFileRoute("/error-spotter")({
 	component: ErrorSpotterPage,

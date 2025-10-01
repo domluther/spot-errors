@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
-import { type Mode, ScoreManager } from "@/lib/scoreManager";
+import {
+	type Mode,
+	type QuestionCategory,
+	ScoreManager,
+} from "@/lib/scoreManager";
 import { SITE_CONFIG } from "@/lib/siteConfig";
 // import { ModeMenu } from "./ModeMenu"; // Hidden when only one mode
 import { ScoreButton } from "./ScoreButton";
@@ -9,7 +13,11 @@ import { StatsModal } from "./StatsModal";
 interface SharedLayoutProps {
 	mode?: Mode;
 	children: (
-		recordScoreAndUpdate: (isCorrect: boolean, questionType: string) => void,
+		recordScoreAndUpdate: (
+			pointsEarned: number,
+			pointsPossible: number,
+			category?: QuestionCategory,
+		) => void,
 		scoreManager: ScoreManager,
 	) => React.ReactNode;
 }
@@ -37,8 +45,12 @@ export function useSharedLayout(mode?: Mode) {
 	const overallStats = scoreManager.getOverallStats();
 
 	// Function to record score and trigger re-render
-	const recordScoreAndUpdate = (isCorrect: boolean, questionType: string) => {
-		scoreManager.recordScore(isCorrect, questionType, mode);
+	const recordScoreAndUpdate = (
+		pointsEarned: number,
+		pointsPossible: number,
+		category?: QuestionCategory,
+	) => {
+		scoreManager.recordScore(pointsEarned, pointsPossible, category, mode);
 		setScoreUpdateTrigger((prev) => prev + 1);
 	};
 

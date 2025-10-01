@@ -9,52 +9,88 @@ export interface LevelInfo {
 export interface ModeStats {
 	attempts: number;
 	correct: number;
+	points: number;
 	streak: number;
 	recordStreak: number;
 }
 
-export type Mode = "Error Spotter" | "Data Types" | "Constructs" | "Operators" | "Champion";
+export interface CategoryStats {
+	attempts: number;
+	correct: number;
+	points: number;
+}
+
+export type Mode = "Error Spotter";
+
+export type QuestionCategory =
+	| "input-output"
+	| "operators"
+	| "variables"
+	| "selection"
+	| "strings"
+	| "iteration-for"
+	| "iteration-while"
+	| "iteration-do-until"
+	| "switch"
+	| "arrays"
+	| "subprograms"
+	| "files";
 
 export interface ScoreData {
 	"Error Spotter": ModeStats;
-	"Data Types": ModeStats;
-	Constructs: ModeStats;
-	Operators: ModeStats;
-	Champion: ModeStats;
+	categoryStats?: Record<QuestionCategory, CategoryStats>;
 }
+
+const blankCategoryStats: Record<QuestionCategory, CategoryStats> = {
+	"input-output": { attempts: 0, correct: 0, points: 0 },
+	operators: { attempts: 0, correct: 0, points: 0 },
+	variables: { attempts: 0, correct: 0, points: 0 },
+	selection: { attempts: 0, correct: 0, points: 0 },
+	strings: { attempts: 0, correct: 0, points: 0 },
+	"iteration-for": { attempts: 0, correct: 0, points: 0 },
+	"iteration-while": { attempts: 0, correct: 0, points: 0 },
+	"iteration-do-until": { attempts: 0, correct: 0, points: 0 },
+	switch: { attempts: 0, correct: 0, points: 0 },
+	arrays: { attempts: 0, correct: 0, points: 0 },
+	subprograms: { attempts: 0, correct: 0, points: 0 },
+	files: { attempts: 0, correct: 0, points: 0 },
+};
 
 const blankScoreData: ScoreData = {
 	"Error Spotter": {
 		attempts: 0,
 		correct: 0,
+		points: 0,
 		streak: 0,
 		recordStreak: 0,
 	},
-	"Data Types": {
-		attempts: 0,
-		correct: 0,
-		streak: 0,
-		recordStreak: 0,
-	},
-	Constructs: {
-		attempts: 0,
-		correct: 0,
-		streak: 0,
-		recordStreak: 0,
-	},
-	Operators: {
-		attempts: 0,
-		correct: 0,
-		streak: 0,
-		recordStreak: 0,
-	},
-	Champion: {
-		attempts: 0,
-		correct: 0,
-		streak: 0,
-		recordStreak: 0,
-	},
+	categoryStats: { ...blankCategoryStats },
 };
+
+// Difficulty multipliers for scoring
+export const DIFFICULTY_MULTIPLIERS: Record<number, number> = {
+	1: 1.0, // Level 1: Basic concepts
+	2: 1.25, // Level 2: Intermediate
+	3: 1.5, // Level 3: Advanced
+	4: 1.75, // Level 4: Expert
+};
+
+/**
+ * Calculate points earned based on correct answers and difficulty level
+ * @param correctParts Number of correct parts (0-3)
+ * @param difficultyLevel Difficulty level (1-4)
+ * @returns Object with pointsEarned and pointsPossible (both rounded up)
+ */
+export function calculatePoints(
+	correctParts: number,
+	difficultyLevel: number,
+): { pointsEarned: number; pointsPossible: number } {
+	const multiplier = DIFFICULTY_MULTIPLIERS[difficultyLevel] || 1.0;
+	return {
+		pointsEarned: Math.ceil(correctParts * multiplier),
+		pointsPossible: Math.ceil(3 * multiplier),
+	};
+}
 
 export class ScoreManager {
 	private storageKey: string;
@@ -119,16 +155,24 @@ export class ScoreManager {
 			const stored = localStorage.getItem(this.storageKey);
 			if (stored) {
 				const loadedScores = JSON.parse(stored) as Partial<ScoreData>;
-				// Merge with blank data to ensure all modes exist
-				const mergedScores = JSON.parse(JSON.stringify(blankScoreData)) as ScoreData;
-				
-				// Copy over existing data
-				Object.keys(loadedScores).forEach((key) => {
-					if (mergedScores[key as Mode]) {
-						mergedScores[key as Mode] = loadedScores[key as Mode] as ModeStats;
-					}
-				});
-				
+				// Merge with blank data to ensure all modes and categories exist
+				const mergedScores = JSON.parse(
+					JSON.stringify(blankScoreData),
+				) as ScoreData;
+
+				// Copy over existing mode data
+				if (loadedScores["Error Spotter"]) {
+					mergedScores["Error Spotter"] = loadedScores["Error Spotter"];
+				}
+
+				// Copy over existing category data, ensuring all categories exist
+				if (loadedScores.categoryStats) {
+					mergedScores.categoryStats = {
+						...blankCategoryStats,
+						...loadedScores.categoryStats,
+					};
+				}
+
 				return mergedScores;
 			}
 			// Return a deep copy to avoid mutations affecting the constant
@@ -162,7 +206,12 @@ export class ScoreManager {
 		this.saveScores();
 	}
 
-	recordScore(isCorrect: boolean, questionType: string, mode?: Mode): void {
+	recordScore(
+		pointsEarned: number,
+		pointsPossible: number,
+		category?: QuestionCategory,
+		mode?: Mode,
+	): void {
 		if (!this.scores) {
 			this.scores = { ...blankScoreData };
 		}
@@ -170,41 +219,32 @@ export class ScoreManager {
 		const modeToUse = mode || this.currentMode;
 		const currentStats = this.scores[modeToUse];
 
+		// Each question is one attempt
 		currentStats.attempts++;
 
-		// In champion mode, also update the original mode's main stats
-		let originalModeStats = null;
-		if (modeToUse === "Champion") {
-			// Extract the actual mode from questionType (e.g., "Data Types-character" -> "Data Types")
-			const actualMode = questionType.split("-")[0] as
-				| "Data Types"
-				| "Constructs"
-				| "Operators";
-			originalModeStats = this.scores[actualMode];
-			originalModeStats.attempts++;
-		}
+		// Add the points earned (can be partial)
+		currentStats.points += pointsEarned;
 
-		if (isCorrect) {
+		// A question is "correct" only if fully correct (all points earned)
+		const isFullyCorrect = pointsEarned === pointsPossible;
+
+		if (isFullyCorrect) {
 			currentStats.correct++;
 			currentStats.streak++;
 			if (currentStats.streak > currentStats.recordStreak) {
 				currentStats.recordStreak = currentStats.streak;
 			}
-
-			// In champion mode, also update the original mode's main stats
-			if (originalModeStats) {
-				originalModeStats.correct++;
-				originalModeStats.streak++;
-				if (originalModeStats.streak > originalModeStats.recordStreak) {
-					originalModeStats.recordStreak = originalModeStats.streak;
-				}
-			}
 		} else {
 			currentStats.streak = 0;
+		}
 
-			// In champion mode, also reset the original mode's streak
-			if (originalModeStats) {
-				originalModeStats.streak = 0;
+		// Track category stats if category is provided
+		if (category && this.scores.categoryStats) {
+			const categoryStats = this.scores.categoryStats[category];
+			categoryStats.attempts++;
+			categoryStats.points += pointsEarned;
+			if (isFullyCorrect) {
+				categoryStats.correct++;
 			}
 		}
 
@@ -221,20 +261,24 @@ export class ScoreManager {
 		nextLevel: LevelInfo | null;
 		streak: number;
 	} {
-		// Calculate overall stats from all modes
+		// Calculate overall stats from mode stats only (not categoryStats)
 		let totalAttempts = 0;
 		let totalCorrect = 0;
+		let totalPoints = 0;
 		let currentModeStreak = 0;
 
-		Object.values(this.scores).forEach((stats) => {
+		// Only iterate over mode keys, not all ScoreData keys
+		const modeKeys: Mode[] = ["Error Spotter"];
+		modeKeys.forEach((mode) => {
+			const stats = this.scores[mode];
 			totalAttempts += stats.attempts;
 			totalCorrect += stats.correct;
+			totalPoints += stats.points;
 		});
 
 		// Use current mode's streak
 		currentModeStreak = this.scores[this.currentMode].streak;
 
-		const totalPoints = totalCorrect;
 		const accuracy =
 			totalAttempts > 0 ? (totalCorrect / totalAttempts) * 100 : 0;
 
@@ -289,6 +333,10 @@ export class ScoreManager {
 		return this.scores;
 	}
 
+	getCategoryStats(): Record<QuestionCategory, CategoryStats> {
+		return this.scores.categoryStats || { ...blankCategoryStats };
+	}
+
 	getScoresByType(): Record<
 		string,
 		{ attempts: number; correct: number; accuracy: number }
@@ -313,14 +361,7 @@ export class ScoreManager {
 	}
 
 	private getModeTitle(mode: Mode): string {
-		const titles = {
-			"Error Spotter": "Error Spotter",
-			"Data Types": "Data Types",
-			Constructs: "Constructs",
-			Operators: "Operators",
-			Champion: "Champion",
-		};
-		return titles[mode];
+		return mode; // Since we only have "Error Spotter" now
 	}
 
 	resetAllScores(): void {

@@ -73,7 +73,8 @@ export const SITE_CONFIG: SiteConfig = {
 			{
 				emoji: "🏆",
 				title: "Error Eliminator",
-				description: "The ultimate debugging champion - no error stands a chance!",
+				description:
+					"The ultimate debugging champion - no error stands a chance!",
 				minPoints: 75,
 				minAccuracy: 90,
 			},
