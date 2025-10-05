@@ -14,6 +14,7 @@ import type { Category, ErrorSpotterQuestion } from "@/lib/questionData";
 import { errorSpotterQuestions } from "@/lib/questionData";
 import type { Mode, QuestionCategory, ScoreManager } from "@/lib/scoreManager";
 import { calculatePoints } from "@/lib/scoreManager";
+import { cn } from "@/lib/utils";
 
 interface ErrorSpotterQuizProps {
 	mode: Mode;
@@ -328,37 +329,39 @@ export function ErrorSpotterQuiz({
 	return (
 		<div className="max-w-4xl mx-auto">
 			{/* Stats Display */}
-			<div className="mb-6 text-center grid grid-cols-3 gap-4">
-				<Card>
-					<CardHeader>
-						<CardDescription>Points</CardDescription>
-						<CardTitle className="text-2xl text-stats-points">
-							{points}
-						</CardTitle>
-					</CardHeader>
-				</Card>
-				<Card>
-					<CardHeader>
-						<CardDescription>Streak</CardDescription>
-						<CardTitle className="text-2xl text-stats-streak">
+			<Card className="p-4 border-l-4 border-stats-card-border bg-stats-card-bg">
+				<div className="grid grid-cols-2 gap-4 md:grid-cols-3">
+					<div className="text-center">
+						<div className="text-2xl font-bold text-stats-points">{points}</div>
+						<div className="text-sm text-stats-label">Points</div>
+					</div>
+					<div className="text-center">
+						<div className="text-2xl font-bold text-stats-streak">
 							{currentStreak}
-						</CardTitle>
-					</CardHeader>
-				</Card>
-				<Card>
-					<CardHeader>
-						<CardDescription>Accuracy</CardDescription>
-						<CardTitle className="text-2xl text-stats-points">
+						</div>
+						<div className="text-sm text-stats-label">Current Streak</div>
+					</div>
+					<div className="text-center">
+						<div
+							className={cn(
+								"text-2xl font-bold",
+								accuracy >= 80
+									? "text-stats-accuracy-high"
+									: accuracy >= 60
+										? "text-stats-record"
+										: "text-stats-accuracy-low",
+							)}
+						>
 							{accuracy}%
-						</CardTitle>
-					</CardHeader>
-				</Card>
-			</div>
-
+						</div>
+						<div className="text-sm text-stats-label">Accuracy</div>
+					</div>
+				</div>
+			</Card>{" "}
 			{/* Category Filter - Collapsible */}
-			<Card className="py-4 mb-6">
+			<Card className="py-4 my-6">
 				<details className="group">
-					<summary className="px-6 pb-4 list-none cursor-pointer hover:bg-muted/50 transition-colors">
+					<summary className="px-6 pb-4 list-none cursor-pointer transition-colors hover:bg-muted/50">
 						<div className="flex items-center justify-between">
 							<div>
 								<CardTitle className="mb-1 text-lg">
@@ -372,7 +375,7 @@ export function ErrorSpotterQuiz({
 							<svg
 								role="img"
 								aria-label="Toggle categories"
-								className="w-5 h-5 text-muted-foreground transition-transform group-open:rotate-180"
+								className="w-5 h-5 transition-transform text-muted-foreground group-open:rotate-180"
 								fill="none"
 								stroke="currentColor"
 								viewBox="0 0 24 24"
@@ -387,7 +390,7 @@ export function ErrorSpotterQuiz({
 						</div>
 					</summary>
 					<CardContent className="pt-0">
-						<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+						<div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
 							{CATEGORIES.map((category) => (
 								<div key={category.id} className="flex items-center space-x-2">
 									<Checkbox
@@ -412,15 +415,14 @@ export function ErrorSpotterQuiz({
 					</CardContent>
 				</details>
 			</Card>
-
 			{/* Question Card */}
 			<Card>
 				<CardHeader>
 					<div className="p-4 border-l-4 rounded bg-question-prompt-bg border-question-prompt-bg">
-						<CardTitle className="mb-2 text-question-prompt-text">
+						<CardTitle className="mb-2 text-xl text-question-prompt-text">
 							What the program should do:
 						</CardTitle>
-						<CardDescription className="text-question-prompt-text/80">
+						<CardDescription className="text-base text-question-prompt-text/80">
 							{currentQuestion.description}
 						</CardDescription>
 					</div>
