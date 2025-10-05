@@ -152,7 +152,7 @@ export function ErrorSpotterQuiz({
 		if (userLineNumber === answer.lineNumber) {
 			currentScore++;
 			feedbackItems.push(
-				<div key="line" className="bg-white/50 p-3 rounded mb-2">
+				<div key="line" className="p-3 mb-2 rounded bg-feedback-success-bg/50">
 					<span className="mr-2">✓</span>
 					<strong>Line Number:</strong> Correct! Line {answer.lineNumber}{" "}
 					contains the error.
@@ -160,7 +160,7 @@ export function ErrorSpotterQuiz({
 			);
 		} else {
 			feedbackItems.push(
-				<div key="line" className="bg-white/50 p-3 rounded mb-2">
+				<div key="line" className="p-3 mb-2 rounded bg-feedback-error-bg/50">
 					<span className="mr-2">✗</span>
 					<strong>Line Number:</strong> Incorrect. The error is on line{" "}
 					{answer.lineNumber}
@@ -192,7 +192,7 @@ export function ErrorSpotterQuiz({
 					? "syntax error so wouldn't run"
 					: "logic error so runs differently";
 			feedbackItems.push(
-				<div key="type" className="bg-white/50 p-3 rounded mb-2">
+				<div key="type" className="p-3 mb-2 rounded bg-feedback-success-bg/50">
 					<span className="mr-2">✓</span>
 					<strong>Error Type:</strong> Correct! This is a {typeDesc}.
 				</div>,
@@ -200,7 +200,7 @@ export function ErrorSpotterQuiz({
 		} else if (errorType) {
 			const correctType = answer.errorType === "syntax" ? "syntax" : "logic";
 			feedbackItems.push(
-				<div key="type" className="bg-white/50 p-3 rounded mb-2">
+				<div key="type" className="p-3 mb-2 rounded bg-feedback-error-bg/50">
 					<span className="mr-2">✗</span>
 					<strong>Error Type:</strong> Incorrect. This is a {correctType} error,
 					not a {normalizedUserType || "different type of"} error.
@@ -208,7 +208,7 @@ export function ErrorSpotterQuiz({
 			);
 		} else {
 			feedbackItems.push(
-				<div key="type" className="bg-white/50 p-3 rounded mb-2">
+				<div key="type" className="p-3 mb-2 rounded bg-feedback-error-bg/50">
 					<span className="mr-2">✗</span>
 					<strong>Error Type:</strong> Please enter an error type (syntax or
 					logic).
@@ -237,7 +237,10 @@ export function ErrorSpotterQuiz({
 		if (correctionCorrect) {
 			currentScore++;
 			feedbackItems.push(
-				<div key="correction" className="bg-white/50 p-3 rounded mb-2">
+				<div
+					key="correction"
+					className="p-3 mb-2 rounded bg-feedback-success-bg/50"
+				>
 					<span className="mr-2">✓</span>
 					<strong>Correction:</strong> Perfect! You correctly fixed the error.{" "}
 					{answer.explanation}
@@ -246,10 +249,13 @@ export function ErrorSpotterQuiz({
 		} else {
 			const exampleCorrection = answer.corrections[0];
 			feedbackItems.push(
-				<div key="correction" className="bg-white/50 p-3 rounded mb-2">
+				<div
+					key="correction"
+					className="p-3 mb-2 rounded bg-feedback-error-bg/50"
+				>
 					<span className="mr-2">✗</span>
 					<strong>Correction:</strong> Incorrect. A correct answer would be:{" "}
-					<code className="bg-gray-200 px-2 py-1 rounded">
+					<code className="px-2 py-1 rounded bg-code-display-bg">
 						{exampleCorrection}
 					</code>
 					<br />
@@ -312,25 +318,29 @@ export function ErrorSpotterQuiz({
 	}
 
 	const getFeedbackColor = () => {
-		if (score === 3) return "bg-green-100 border-green-300 text-green-900";
-		if (score >= 1) return "bg-yellow-100 border-yellow-300 text-yellow-900";
-		return "bg-red-100 border-red-300 text-red-900";
+		if (score === 3)
+			return "bg-feedback-success-bg border-feedback-success-text text-feedback-success-text";
+		if (score >= 1)
+			return "bg-[oklch(0.977_0.051_84.429)] border-[oklch(0.706_0.188_84.429)] text-[oklch(0.437_0.158_84.429)]"; // yellow tones
+		return "bg-feedback-error-bg border-feedback-error-text text-feedback-error-text";
 	};
 
 	return (
 		<div className="max-w-4xl mx-auto">
 			{/* Stats Display */}
-			<div className="mb-6 grid grid-cols-3 gap-4 text-center">
+			<div className="mb-6 text-center grid grid-cols-3 gap-4">
 				<Card>
 					<CardHeader>
 						<CardDescription>Points</CardDescription>
-						<CardTitle className="text-2xl text-indigo-600">{points}</CardTitle>
+						<CardTitle className="text-2xl text-stats-points">
+							{points}
+						</CardTitle>
 					</CardHeader>
 				</Card>
 				<Card>
 					<CardHeader>
 						<CardDescription>Streak</CardDescription>
-						<CardTitle className="text-2xl text-indigo-600">
+						<CardTitle className="text-2xl text-stats-streak">
 							{currentStreak}
 						</CardTitle>
 					</CardHeader>
@@ -338,7 +348,7 @@ export function ErrorSpotterQuiz({
 				<Card>
 					<CardHeader>
 						<CardDescription>Accuracy</CardDescription>
-						<CardTitle className="text-2xl text-indigo-600">
+						<CardTitle className="text-2xl text-stats-points">
 							{accuracy}%
 						</CardTitle>
 					</CardHeader>
@@ -346,12 +356,12 @@ export function ErrorSpotterQuiz({
 			</div>
 
 			{/* Category Filter - Collapsible */}
-			<Card className="mb-6 py-4">
+			<Card className="py-4 mb-6">
 				<details className="group">
-					<summary className="cursor-pointer list-none px-6 pb-4 hover:bg-gray-50 transition-colors">
+					<summary className="px-6 pb-4 list-none cursor-pointer hover:bg-muted/50 transition-colors">
 						<div className="flex items-center justify-between">
 							<div>
-								<CardTitle className="text-lg mb-1">
+								<CardTitle className="mb-1 text-lg">
 									Question Categories
 								</CardTitle>
 								<CardDescription>
@@ -362,7 +372,7 @@ export function ErrorSpotterQuiz({
 							<svg
 								role="img"
 								aria-label="Toggle categories"
-								className="w-5 h-5 text-gray-500 transition-transform group-open:rotate-180"
+								className="w-5 h-5 text-muted-foreground transition-transform group-open:rotate-180"
 								fill="none"
 								stroke="currentColor"
 								viewBox="0 0 24 24"
@@ -387,7 +397,7 @@ export function ErrorSpotterQuiz({
 									/>
 									<label
 										htmlFor={category.id}
-										className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
+										className="text-sm font-medium leading-none cursor-pointer peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
 									>
 										{category.label}
 									</label>
@@ -395,7 +405,7 @@ export function ErrorSpotterQuiz({
 							))}
 						</div>
 						{selectedCategories.size === 0 && (
-							<p className="mt-4 text-sm text-yellow-600 bg-yellow-50 border border-yellow-200 rounded p-3">
+							<p className="mt-4 text-sm text-[oklch(0.706_0.188_84.429)] bg-[oklch(0.977_0.051_84.429)] border border-[oklch(0.828_0.189_84.429)] rounded p-3">
 								⚠️ No categories selected. All questions will be shown.
 							</p>
 						)}
@@ -406,11 +416,11 @@ export function ErrorSpotterQuiz({
 			{/* Question Card */}
 			<Card>
 				<CardHeader>
-					<div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
-						<CardTitle className="text-blue-900 mb-2">
+					<div className="p-4 border-l-4 rounded bg-question-prompt-bg border-question-prompt-bg">
+						<CardTitle className="mb-2 text-question-prompt-text">
 							What the program should do:
 						</CardTitle>
-						<CardDescription className="text-gray-700">
+						<CardDescription className="text-question-prompt-text/80">
 							{currentQuestion.description}
 						</CardDescription>
 					</div>
@@ -418,25 +428,27 @@ export function ErrorSpotterQuiz({
 
 				<CardContent className="space-y-6">
 					{/* Code Block */}
-					<div className="bg-gray-50 border-2 border-gray-300 rounded-lg p-4 font-mono text-sm overflow-x-auto">
+					<div className="p-4 overflow-x-auto font-mono text-base border-2 rounded-lg bg-code-display-bg border-border">
 						{currentQuestion.code.map((line, index) => (
 							<div
 								key={`line-${index}-${line.substring(0, 20)}`}
 								className="flex mb-1"
 							>
-								<span className="text-gray-500 min-w-[40px] text-right pr-4 border-r-2 border-gray-300 mr-4 select-none">
+								<span className="text-foreground/60 dark:text-code-line-number min-w-[40px] text-right pr-4 border-r-2 border-border mr-4 select-none">
 									{String(index + 1).padStart(2, "0")}
 								</span>
-								<span className="text-gray-900 whitespace-pre">{line}</span>
+								<span className="whitespace-pre text-foreground dark:text-code-display-text">
+									{line}
+								</span>
 							</div>
 						))}
 					</div>{" "}
 					{/* Input Form */}
-					<div className="space-y-4 bg-gray-50 p-6 rounded-lg">
+					<div className="p-6 rounded-lg space-y-4 bg-muted/30">
 						<div>
 							<label
 								htmlFor={lineNumberId}
-								className="block text-sm font-semibold text-gray-700 mb-2"
+								className="block mb-2 text-sm font-semibold text-foreground"
 							>
 								1. Line Number with Error:
 							</label>
@@ -456,7 +468,7 @@ export function ErrorSpotterQuiz({
 						<div>
 							<label
 								htmlFor={errorTypeId}
-								className="block text-sm font-semibold text-gray-700 mb-2"
+								className="block mb-2 text-sm font-semibold text-foreground"
 							>
 								2. Type of Error (type "syntax" or "logic"):
 							</label>
@@ -474,7 +486,7 @@ export function ErrorSpotterQuiz({
 						<div>
 							<label
 								htmlFor={correctionId}
-								className="block text-sm font-semibold text-gray-700 mb-2"
+								className="block mb-2 text-sm font-semibold text-foreground"
 							>
 								3. Corrected Line of Code:
 							</label>
@@ -494,14 +506,14 @@ export function ErrorSpotterQuiz({
 								<Button
 									onClick={checkAnswer}
 									disabled={!lineNumber || !errorType || !correction}
-									className="flex-1 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700"
+									className="flex-1 bg-action-button-bg hover:bg-action-button-bg-hover text-action-button-text disabled:bg-action-button-disabled"
 								>
 									Submit Answer
 								</Button>
 							) : (
 								<Button
 									onClick={generateQuestion}
-									className="flex-1 bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600"
+									className="flex-1 bg-action-button-bg hover:bg-action-button-bg-hover text-action-button-text"
 								>
 									Next Question
 								</Button>
@@ -519,11 +531,11 @@ export function ErrorSpotterQuiz({
 									generateQuestion();
 								}
 							}}
-							className={`p-6 rounded-lg border-2 ${getFeedbackColor()} animate-in fade-in slide-in-from-bottom-2 duration-300 outline-none focus:ring-2 focus:ring-indigo-500`}
+							className={`p-6 rounded-lg border-2 ${getFeedbackColor()} animate-in fade-in slide-in-from-bottom-2 duration-300 outline-none focus:ring-2 focus:ring-ring`}
 						>
 							<div className="flex items-baseline justify-between mb-4">
 								<div className="text-2xl font-bold">Score: {score}/3</div>
-								<div className="text-lg font-semibold text-indigo-600">
+								<div className="text-lg font-semibold text-stats-points">
 									{(() => {
 										const categoryInfo = CATEGORIES.find(
 											(c) => c.id === currentQuestion.category,
@@ -537,7 +549,7 @@ export function ErrorSpotterQuiz({
 											<>
 												+{pointsEarned} points
 												{difficultyLevel > 1 && (
-													<span className="ml-2 text-sm text-gray-600">
+													<span className="ml-2 text-sm text-muted-foreground">
 														(Level {difficultyLevel} question)
 													</span>
 												)}
@@ -547,9 +559,9 @@ export function ErrorSpotterQuiz({
 								</div>
 							</div>
 							{feedback}
-							<div className="mt-4 pt-4 border-t border-gray-300 text-sm text-gray-600">
+							<div className="pt-4 mt-4 text-sm border-t border-border text-muted-foreground">
 								💡 Press{" "}
-								<kbd className="px-2 py-1 bg-white rounded border border-gray-300 font-mono">
+								<kbd className="px-2 py-1 font-mono border rounded bg-muted border-border">
 									Enter
 								</kbd>{" "}
 								to continue

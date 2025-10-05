@@ -15,7 +15,7 @@ interface SiteLayoutProps {
 }
 
 /**
- * Reusable layout component for Programming Fundamentals practice sites
+ * Reusable layout component for GCSE CS practice sites
  * Provides consistent header, navigation, and content structure
  */
 export function SiteLayout({
@@ -32,7 +32,7 @@ export function SiteLayout({
 				title={`${titleIcon} ${title} ${titleIcon}`}
 				subtitle={subtitle}
 			/>
-			<main className="p-4 bg-indigo-50 sm:p-6">
+			<main className="p-4 bg-muted sm:p-6">
 				<div className="mx-auto">{children}</div>
 			</main>
 		</>

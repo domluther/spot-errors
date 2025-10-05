@@ -9,8 +9,6 @@ const QUIZ_MODES = [
 export const ModeMenu = () => {
 	const location = useLocation();
 
-	// If there's only one mode, we can hide the menu or just show it for consistency
-	// For now, showing it to indicate the current mode
 	return (
 		<div className="flex flex-row justify-center px-4 mt-2 mb-4 gap-2 sm:gap-4">
 			{QUIZ_MODES.map((mode) => (
@@ -19,7 +17,7 @@ export const ModeMenu = () => {
 						variant="menu"
 						className={`w-full sm:w-auto text-sm sm:text-base p-3 sm:p-6 ${
 							location.pathname === mode.path
-								? "text-white bg-green-600  hover:bg-green-700 hover:shadow-lg"
+								? "text-action-button-text bg-action-button-bg hover:bg-action-button-bg-hover hover:shadow-lg"
 								: ""
 						}`}
 					>

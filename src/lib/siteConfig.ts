@@ -32,7 +32,7 @@ export const SITE_CONFIG: SiteConfig = {
 	siteKey: "error-spotter",
 	title: "OCR ERL Error Spotter",
 	subtitle: "Find and fix syntax and logic errors in code",
-	icon: "🔍",
+	icon: "🦆",
 	scoring: {
 		customLevels: [
 			{
