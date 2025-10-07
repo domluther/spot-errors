@@ -19,6 +19,16 @@ export interface CategoryStats {
 	correct: number;
 	points: number;
 }
+export interface OverallStats {
+	accuracy: number;
+	totalPoints: number;
+	totalAttempts: number;
+	totalCorrect: number;
+	currentLevel: LevelInfo;
+	progress: number;
+	nextLevel: LevelInfo | null;
+	streak: number;
+}
 
 export type Mode = "Error Spotter";
 
@@ -251,16 +261,7 @@ export class ScoreManager {
 		this.saveScores();
 	}
 
-	getOverallStats(): {
-		totalAttempts: number;
-		totalCorrect: number;
-		accuracy: number;
-		totalPoints: number;
-		currentLevel: LevelInfo;
-		progress: number;
-		nextLevel: LevelInfo | null;
-		streak: number;
-	} {
+	getOverallStats(): OverallStats {
 		// Calculate overall stats from mode stats only (not categoryStats)
 		let totalAttempts = 0;
 		let totalCorrect = 0;

@@ -61,6 +61,7 @@ export function useSharedLayout(mode?: Mode) {
 		scoreManager,
 		overallStats,
 		recordScoreAndUpdate,
+		setScoreUpdateTrigger,
 	};
 }
 
@@ -72,6 +73,7 @@ export function SharedLayout({ mode, children }: SharedLayoutProps) {
 		scoreManager,
 		overallStats,
 		recordScoreAndUpdate,
+		setScoreUpdateTrigger,
 	} = useSharedLayout(mode);
 
 	return (
@@ -100,6 +102,7 @@ export function SharedLayout({ mode, children }: SharedLayoutProps) {
 				onClose={() => setShowStatsModal(false)}
 				scoreManager={scoreManager}
 				title="Your Programming Progress"
+				onStatsUpdate={() => setScoreUpdateTrigger((prev) => prev + 1)}
 			/>
 		</SiteLayout>
 	);
