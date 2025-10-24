@@ -46,6 +46,313 @@ export const QUIZ_MODES: Record<string, QuizMode> = {
 export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 	{
 		description:
+			"This program calculates the area of a rectangle by multiplying length and width, then displays the result.",
+		code: [
+			'length = input("Enter length")',
+			'width = input("Enter width")',
+			"area = length * width",
+			'print("Area is")',
+			"print(area",
+		],
+		answer: {
+			lineNumber: 5,
+			errorType: "syntax",
+			corrections: ["print(area)"],
+			explanation: "The print statement is missing its closing bracket.",
+		},
+		category: "input-output",
+	},
+	{
+		description:
+			"This program asks for a temperature in Celsius and converts it to Fahrenheit using the formula F = C * 9/5 + 32.",
+		code: [
+			'celsius = input("Enter temperature in Celsius")',
+			"fahrenheit = celsius * 9/5 + 32",
+			'print("Temperature in Fahrenheit is")',
+			"print(celsuis)",
+		],
+		answer: {
+			lineNumber: 4,
+			errorType: "syntax",
+			corrections: ["print(fahrenheit)"],
+			explanation: 'The variable name "fahrenheit" is misspelled as "celsuis".',
+		},
+		category: "input-output",
+	},
+	{
+		description:
+			"This program asks the user to input their name and then displays a personalized greeting message.",
+		code: ['name = input("Enter your name")', 'print("Hello " + name'],
+		answer: {
+			lineNumber: 2,
+			errorType: "syntax",
+			corrections: ['print("Hello " + name)'],
+			explanation: "The print statement is missing its closing bracket.",
+		},
+		category: "input-output",
+	},
+	{
+		description:
+			"This program calculates the average of three test scores by adding them together and dividing by 3.",
+		code: [
+			'score1 = input("Enter score 1")',
+			'score2 = input("Enter score 2")',
+			'score3 = input("Enter score 3")',
+			"average = (score1 + score2 + score3) / 3",
+			'print("Average is")',
+			"print(averge)",
+		],
+		answer: {
+			lineNumber: 6,
+			errorType: "syntax",
+			corrections: ["print(average)"],
+			explanation: 'The variable name "average" is misspelled as "averge".',
+		},
+		category: "input-output",
+	},
+	{
+		description:
+			"This program casts a string '42' to an integer and adds 8 to it, then displays the result.",
+		code: [
+			'numStr = "42"',
+			"numInt = int(numStr)",
+			"result = numInt + 8",
+			"print(result",
+		],
+		answer: {
+			lineNumber: 4,
+			errorType: "syntax",
+			corrections: ["print(result)"],
+			explanation: "The print statement is missing its closing bracket.",
+		},
+		category: "input-output",
+	},
+	{
+		description:
+			"This program creates a constant for VAT rate (20%) and calculates the VAT on a price, then displays the total price including VAT.",
+		code: [
+			"const VAT = 0.2",
+			'price = input("Enter price")',
+			"vatAmount = price * VAT",
+			"total = price + vatAmount",
+			'print("Total with VAT")',
+			"print(totl)",
+		],
+		answer: {
+			lineNumber: 6,
+			errorType: "syntax",
+			corrections: ["print(total)"],
+			explanation: 'The variable name "total" is misspelled as "totl".',
+		},
+		category: "input-output",
+	},
+	{
+		description:
+			"This program asks for a sentence and displays how many characters are in it.",
+		code: [
+			'sentence = input("Enter a sentence")',
+			"length = len(sentence)",
+			'print("Character count")',
+			"print(lenght)",
+		],
+		answer: {
+			lineNumber: 4,
+			errorType: "syntax",
+			corrections: ["print(length)"],
+			explanation: 'The variable name "length" is misspelled as "lenght".',
+		},
+		category: "input-output",
+	},
+	{
+		description:
+			"This program calculates the area of a rectangle by multiplying length and width, then displays the result.",
+		code: [
+			'length = input("Enter length")',
+			'width = input("Enter width")',
+			"area = length * width",
+			'print("Area is"',
+			"print(area)",
+		],
+		answer: {
+			lineNumber: 4,
+			errorType: "syntax",
+			corrections: ['print("Area is")'],
+			explanation: "The print statement is missing its closing bracket.",
+		},
+		category: "input-output",
+	},
+	{
+		description:
+			"This program checks if a student has passed an exam. A pass requires a score of 40 or more.",
+		code: [
+			'score = input("Enter your score")',
+			"if score >= 40 then",
+			'    print("Pass")',
+			"else",
+			'    print("Fail)',
+			"endif",
+		],
+		answer: {
+			lineNumber: 5,
+			errorType: "syntax",
+			corrections: ['print("Fail")'],
+			explanation: "The string is missing its closing quote.",
+		},
+		category: "input-output",
+	},
+	{
+		description:
+			"This program displays a welcome message three times using a loop.",
+		code: [
+			"for count = 1 to 3",
+			'    print("Welcome")',
+			"next count",
+			'print(Finished")',
+		],
+		answer: {
+			lineNumber: 4,
+			errorType: "syntax",
+			corrections: ['print("Finished")'],
+			explanation: "The string is missing its opening quote.",
+		},
+		category: "input-output",
+	},
+	{
+		description:
+			"This program asks the user to input their name and then displays a personalized greeting message.",
+		code: ['name = input("Enter your name")', 'print("Hello " . name)'],
+		answer: {
+			lineNumber: 2,
+			errorType: "syntax",
+			corrections: ['print("Hello " + name)'],
+			explanation: "String concatenation uses + not . (dot).",
+		},
+		category: "input-output",
+	},
+	{
+		description:
+			"This program asks the user to input their name and then displays a personalized greeting message.",
+		code: ['name = imput("Enter your name")', 'print("Hello " + name)'],
+		answer: {
+			lineNumber: 1,
+			errorType: "syntax",
+			corrections: ['name = input("Enter your name")'],
+			explanation: 'The input function is misspelled as "imput".',
+		},
+		category: "input-output",
+	},
+	{
+		description:
+			"This program extracts the first 3 characters from a string and displays them.",
+		code: [
+			'text = input("Enter some text")',
+			"first3 = text.left(3)",
+			"print(frst3)",
+		],
+		answer: {
+			lineNumber: 3,
+			errorType: "syntax",
+			corrections: ["print(first3)"],
+			explanation: 'The variable name "first3" is misspelled as "frst3".',
+		},
+		category: "input-output",
+	},
+	{
+		description:
+			"This program converts a character to its ASCII code and displays it.",
+		code: [
+			'char = input("Enter a character")',
+			"code = ASC(char)",
+			'print("ASCII code is"',
+			"print(code)",
+		],
+		answer: {
+			lineNumber: 3,
+			errorType: "syntax",
+			corrections: ['print("ASCII code is")'],
+			explanation: "The print statement is missing its closing bracket.",
+		},
+		category: "input-output",
+	},
+	{
+		description:
+			"This program creates a global variable for player lives (starting at 3) and displays it.",
+		code: ["lives = 3", 'print("Lives remaining"', "print(lives)"],
+		answer: {
+			lineNumber: 2,
+			errorType: "syntax",
+			corrections: ['print("Lives remaining")'],
+			explanation: "The print statement is missing its closing bracket.",
+		},
+		category: "input-output",
+	},
+	{
+		description:
+			"This program reads a number as a string and casts it to a float, then adds 2.5 to it.",
+		code: [
+			'numStr = input("Enter a decimal number")',
+			"numFloat = float(numStr)",
+			"result = numFloat + 2.5",
+			"print(reslt)",
+		],
+		answer: {
+			lineNumber: 4,
+			errorType: "syntax",
+			corrections: ["print(result)"],
+			explanation: 'The variable name "result" is misspelled as "reslt".',
+		},
+		category: "input-output",
+	},
+	{
+		description:
+			"This program generates a random integer between 1 and 6 (like a dice roll) and displays it.",
+		code: ["dice = random(1, 6)", 'print("You rolled")', "print(dic)"],
+		answer: {
+			lineNumber: 3,
+			errorType: "syntax",
+			corrections: ["print(dice)"],
+			explanation: 'The variable name "dice" is misspelled as "dic".',
+		},
+		category: "input-output",
+	},
+	{
+		description:
+			"This program asks for an item price and quantity, calculates the total cost, and displays it.",
+		code: [
+			'price = input("Enter price")',
+			'quantity = input("Enter quantity")',
+			"total = price * quantity",
+			'print("Total cost")',
+			"print(totla)",
+		],
+		answer: {
+			lineNumber: 5,
+			errorType: "syntax",
+			corrections: ["print(total)"],
+			explanation: 'The variable name "total" is misspelled as "totla".',
+		},
+		category: "input-output",
+	},
+	{
+		description:
+			"This program calculates a 10% discount on a price and displays the discounted price.",
+		code: [
+			'price = input("Enter price")',
+			"discount = price * 0.1",
+			"newprice = price + discount",
+			'print("Discounted price is")',
+			"print(newprice)",
+		],
+		answer: {
+			lineNumber: 3,
+			errorType: "logic",
+			corrections: ["newprice = price - discount"],
+			explanation:
+				"The discount should be subtracted from the price, not added to it.",
+		},
+		category: "operators",
+	},	{
+		description:
 			"This program asks the user to enter a number. It then checks if the number is even or odd and displays the appropriate message.",
 		code: [
 			'num = input("enter a number")',
@@ -105,24 +412,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		},
 		category: "selection",
 	},
-	{
-		description:
-			"This program calculates the area of a rectangle by multiplying length and width, then displays the result.",
-		code: [
-			'length = input("Enter length")',
-			'width = input("Enter width")',
-			"area = length * width",
-			'print("Area is")',
-			"print(area",
-		],
-		answer: {
-			lineNumber: 5,
-			errorType: "syntax",
-			corrections: ["print(area)"],
-			explanation: "The print statement is missing its closing parenthesis.",
-		},
-		category: "input-output",
-	},
+
 	{
 		description: "This program counts from 1 to 5 and displays each number.",
 		code: ["for i = 1 to 5", "    print(i)", "endfor", 'print("Done")'],
@@ -173,25 +463,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		},
 		category: "selection",
 	},
-	{
-		description:
-			"This program calculates a 10% discount on a price and displays the discounted price.",
-		code: [
-			'price = input("Enter price")',
-			"discount = price * 0.1",
-			"newprice = price + discount",
-			'print("Discounted price is")',
-			"print(newprice)",
-		],
-		answer: {
-			lineNumber: 3,
-			errorType: "logic",
-			corrections: ["newprice = price - discount"],
-			explanation:
-				"The discount should be subtracted from the price, not added to it.",
-		},
-		category: "operators",
-	},
+
 	{
 		description:
 			"This program displays a welcome message three times using a loop.",
@@ -205,58 +477,11 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			lineNumber: 4,
 			errorType: "syntax",
 			corrections: ['print("Finished")'],
-			explanation: "The print statement is missing its closing parenthesis.",
+			explanation: "The print statement is missing its closing bracket.",
 		},
 		category: "iteration-for",
 	},
-	{
-		description:
-			"This program asks for a temperature in Celsius and converts it to Fahrenheit using the formula F = C * 9/5 + 32.",
-		code: [
-			'celsius = input("Enter temperature in Celsius")',
-			"fahrenheit = celsius * 9/5 + 32",
-			'print("Temperature in Fahrenheit is")',
-			"print(celsuis)",
-		],
-		answer: {
-			lineNumber: 4,
-			errorType: "syntax",
-			corrections: ["print(fahrenheit)"],
-			explanation: 'The variable name "fahrenheit" is misspelled as "celsuis".',
-		},
-		category: "input-output",
-	},
-	{
-		description:
-			"This program asks the user to input their name and then displays a personalized greeting message.",
-		code: ['name = input("Enter your name")', 'print("Hello " + name'],
-		answer: {
-			lineNumber: 2,
-			errorType: "syntax",
-			corrections: ['print("Hello " + name)'],
-			explanation: "The print statement is missing its closing parenthesis.",
-		},
-		category: "input-output",
-	},
-	{
-		description:
-			"This program calculates the average of three test scores by adding them together and dividing by 3.",
-		code: [
-			'score1 = input("Enter score 1")',
-			'score2 = input("Enter score 2")',
-			'score3 = input("Enter score 3")',
-			"average = (score1 + score2 + score3) / 3",
-			'print("Average is")',
-			"print(averge)",
-		],
-		answer: {
-			lineNumber: 6,
-			errorType: "syntax",
-			corrections: ["print(average)"],
-			explanation: 'The variable name "average" is misspelled as "averge".',
-		},
-		category: "input-output",
-	},
+
 	{
 		description:
 			"This program checks if a number is positive, negative, or zero and displays the appropriate message.",
@@ -313,7 +538,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			lineNumber: 5,
 			errorType: "syntax",
 			corrections: ["f.close()"],
-			explanation: "The close method needs parentheses to be called correctly.",
+			explanation: "The close subprogram needs brackets to be called correctly.",
 		},
 		category: "files",
 	},
@@ -369,23 +594,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		},
 		category: "arrays",
 	},
-	{
-		description:
-			"This program casts a string '42' to an integer and adds 8 to it, then displays the result.",
-		code: [
-			'numStr = "42"',
-			"numInt = int(numStr)",
-			"result = numInt + 8",
-			"print(result",
-		],
-		answer: {
-			lineNumber: 4,
-			errorType: "syntax",
-			corrections: ["print(result)"],
-			explanation: "The print statement is missing its closing parenthesis.",
-		},
-		category: "input-output",
-	},
+
 	{
 		description:
 			"This program repeatedly asks for a password until the user enters 'admin123'.",
@@ -464,25 +673,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		},
 		category: "selection",
 	},
-	{
-		description:
-			"This program creates a constant for VAT rate (20%) and calculates the VAT on a price, then displays the total price including VAT.",
-		code: [
-			"const VAT = 0.2",
-			'price = input("Enter price")',
-			"vatAmount = price * VAT",
-			"total = price + vatAmount",
-			'print("Total with VAT")',
-			"print(totl)",
-		],
-		answer: {
-			lineNumber: 6,
-			errorType: "syntax",
-			corrections: ["print(total)"],
-			explanation: 'The variable name "total" is misspelled as "totl".',
-		},
-		category: "input-output",
-	},
+
 	{
 		description:
 			"This program uses a do-until loop to keep asking for a number until the user enters a number greater than 10.",
@@ -641,23 +832,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		},
 		category: "selection",
 	},
-	{
-		description:
-			"This program asks for a sentence and displays how many characters are in it.",
-		code: [
-			'sentence = input("Enter a sentence")',
-			"length = len(sentence)",
-			'print("Character count")',
-			"print(lenght)",
-		],
-		answer: {
-			lineNumber: 4,
-			errorType: "syntax",
-			corrections: ["print(length)"],
-			explanation: 'The variable name "length" is misspelled as "lenght".',
-		},
-		category: "input-output",
-	},
+
 	{
 		description:
 			"This program extracts characters 3 to 6 from a string using substring and displays them.",
@@ -865,24 +1040,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		},
 		category: "operators",
 	},
-	{
-		description:
-			"This program calculates the area of a rectangle by multiplying length and width, then displays the result.",
-		code: [
-			'length = input("Enter length")',
-			'width = input("Enter width")',
-			"area = length * width",
-			'print("Area is"',
-			"print(area)",
-		],
-		answer: {
-			lineNumber: 4,
-			errorType: "syntax",
-			corrections: ['print("Area is")'],
-			explanation: "The print statement is missing its closing parenthesis.",
-		},
-		category: "input-output",
-	},
+
 	{
 		description: "This program counts from 1 to 5 and displays each number.",
 		code: ["for i = 1 to 5", "    print(i)", "endfor", 'print("Done")'],
@@ -906,25 +1064,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		},
 		category: "iteration-for",
 	},
-	{
-		description:
-			"This program checks if a student has passed an exam. A pass requires a score of 40 or more.",
-		code: [
-			'score = input("Enter your score")',
-			"if score >= 40 then",
-			'    print("Pass")',
-			"else",
-			'    print("Fail)',
-			"endif",
-		],
-		answer: {
-			lineNumber: 5,
-			errorType: "syntax",
-			corrections: ['print("Fail")'],
-			explanation: "The string is missing its closing quote.",
-		},
-		category: "input-output",
-	},
+
 	{
 		description:
 			"This program checks if a student has passed an exam. A pass requires a score of 40 or more.",
@@ -1003,47 +1143,6 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 	},
 	{
 		description:
-			"This program displays a welcome message three times using a loop.",
-		code: [
-			"for count = 1 to 3",
-			'    print("Welcome")',
-			"next count",
-			'print(Finished")',
-		],
-		answer: {
-			lineNumber: 4,
-			errorType: "syntax",
-			corrections: ['print("Finished")'],
-			explanation: "The string is missing its opening quote.",
-		},
-		category: "input-output",
-	},
-	{
-		description:
-			"This program asks the user to input their name and then displays a personalized greeting message.",
-		code: ['name = input("Enter your name")', 'print("Hello " . name)'],
-		answer: {
-			lineNumber: 2,
-			errorType: "syntax",
-			corrections: ['print("Hello " + name)'],
-			explanation: "String concatenation uses + not . (dot).",
-		},
-		category: "input-output",
-	},
-	{
-		description:
-			"This program asks the user to input their name and then displays a personalized greeting message.",
-		code: ['name = imput("Enter your name")', 'print("Hello " + name)'],
-		answer: {
-			lineNumber: 1,
-			errorType: "syntax",
-			corrections: ['name = input("Enter your name")'],
-			explanation: 'The input function is misspelled as "imput".',
-		},
-		category: "input-output",
-	},
-	{
-		description:
 			"This program calculates the average of three test scores by adding them together and dividing by 3.",
 		code: [
 			'score1 = input("Enter score 1")',
@@ -1109,7 +1208,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		code: [
 			"function square(num)",
 			"    result = num * num",
-			"    return result",
+			"    return res",
 			"endfunction",
 			"answer = square(5)",
 			"print(answer)",
@@ -1117,9 +1216,9 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		answer: {
 			lineNumber: 3,
 			errorType: "syntax",
-			corrections: ["return(result)"],
+			corrections: ["return result", "return (result)"],
 			explanation:
-				"The return statement requires parentheses around the value.",
+				"The return statement needs to return the correct variable.",
 		},
 		category: "subprograms",
 	},
@@ -1157,7 +1256,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			errorType: "syntax",
 			corrections: ["f.close()"],
 			explanation:
-				"The close method must be called on the file object using f.close().",
+				"The close subprogram must be called on the f variable using f.close().",
 		},
 		category: "files",
 	},
@@ -1209,7 +1308,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			errorType: "syntax",
 			corrections: ["array scores[5]"],
 			explanation:
-				"Array declaration uses square brackets [], not parentheses ().",
+				"Array declaration uses square brackets [], not round brackets ().",
 		},
 		category: "arrays",
 	},
@@ -1386,43 +1485,11 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			errorType: "logic",
 			corrections: ["first3 = text.left(3)"],
 			explanation:
-				"Use the left() method to get the first characters, not substring().",
+				"Use the left() subprogram to get the first characters, not substring().",
 		},
 		category: "strings",
 	},
-	{
-		description:
-			"This program extracts the first 3 characters from a string and displays them.",
-		code: [
-			'text = input("Enter some text")',
-			"first3 = text.left(3)",
-			"print(frst3)",
-		],
-		answer: {
-			lineNumber: 3,
-			errorType: "syntax",
-			corrections: ["print(first3)"],
-			explanation: 'The variable name "first3" is misspelled as "frst3".',
-		},
-		category: "input-output",
-	},
-	{
-		description:
-			"This program converts a character to its ASCII code and displays it.",
-		code: [
-			'char = input("Enter a character")',
-			"code = ASC(char)",
-			'print("ASCII code is"',
-			"print(code)",
-		],
-		answer: {
-			lineNumber: 3,
-			errorType: "syntax",
-			corrections: ['print("ASCII code is")'],
-			explanation: "The print statement is missing its closing parenthesis.",
-		},
-		category: "input-output",
-	},
+
 	{
 		description:
 			"This program creates a procedure that displays 'Hello World' three times.",
@@ -1458,7 +1525,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			errorType: "syntax",
 			corrections: ["procedure greet()"],
 			explanation:
-				"Procedure declarations require parentheses even with no parameters.",
+				"Procedure declarations require brackets even with no parameters.",
 		},
 		category: "subprograms",
 	},
@@ -1490,7 +1557,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			lineNumber: 2,
 			errorType: "syntax",
 			corrections: ["upperName = name.upper"],
-			explanation: "The upper property does not use parentheses.",
+			explanation: "The upper property does not use brackets.",
 		},
 		category: "strings",
 	},
@@ -1512,18 +1579,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		},
 		category: "operators",
 	},
-	{
-		description:
-			"This program creates a global variable for player lives (starting at 3) and displays it.",
-		code: ["lives = 3", 'print("Lives remaining"', "print(lives)"],
-		answer: {
-			lineNumber: 2,
-			errorType: "syntax",
-			corrections: ['print("Lives remaining")'],
-			explanation: "The print statement is missing its closing parenthesis.",
-		},
-		category: "input-output",
-	},
+
 	{
 		description:
 			"This program asks for two numbers and displays which one is larger. If they're equal, it displays 'Equal'.",
@@ -1578,7 +1634,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			errorType: "syntax",
 			corrections: ["extract = text.substring(3, 6)"],
 			explanation:
-				"The substring method must be called on the text string object.",
+				"The substring subprogram must be called on the text variable.",
 		},
 		category: "strings",
 	},
@@ -1608,7 +1664,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			errorType: "syntax",
 			corrections: ['f.writeLine("Hello File")'],
 			explanation:
-				"The method name should be writeLine (camelCase), not WriteLine (capital W).",
+				"The subprogram name should be writeLine (camelCase), not WriteLine (capital W).",
 		},
 		category: "files",
 	},
@@ -1719,7 +1775,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			lineNumber: 5,
 			errorType: "syntax",
 			corrections: ["addNumbers(5, 7)"],
-			explanation: "The procedure call is missing its closing parenthesis.",
+			explanation: "The procedure call is missing its closing bracket.",
 		},
 		category: "subprograms",
 	},
@@ -1824,53 +1880,28 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		},
 		category: "arrays",
 	},
+
 	{
-		description:
-			"This program reads a number as a string and casts it to a float, then adds 2.5 to it.",
-		code: [
-			'numStr = input("Enter a decimal number")',
-			"numFloat = float(numStr)",
-			"result = numFloat + 2.5",
-			"print(reslt)",
-		],
-		answer: {
-			lineNumber: 4,
-			errorType: "syntax",
-			corrections: ["print(result)"],
-			explanation: 'The variable name "result" is misspelled as "reslt".',
-		},
-		category: "input-output",
-	},
-	{
-		description:
-			"This program calculates how many times 5 goes into 17.",
-		code: [
-			"num = 17",
-			"num2 = 5",
-			"answer = num MOD num2",
-			"print(answer)",
-		],
+		description: "This program calculates how many times 5 goes into 17.",
+		code: ["num = 17", "num2 = 5", "answer = num MOD num2", "print(answer)"],
 		answer: {
 			lineNumber: 3,
 			errorType: "logic",
 			corrections: ["answer = num DIV num2"],
-			explanation: "DIV gives the quotient (how many times it goes in); MOD gives the remainder.",
+			explanation:
+				"DIV gives the quotient (how many times it goes in); MOD gives the remainder.",
 		},
 		category: "operators",
 	},
 	{
 		description: "This program calculates the remainder when dividing 17 by 5.",
-		code: [
-			"num = 17",
-			"num2 = 5",
-			"answer = num DIV num2",
-			"print(answer)",
-		],
+		code: ["num = 17", "num2 = 5", "answer = num DIV num2", "print(answer)"],
 		answer: {
 			lineNumber: 3,
 			errorType: "logic",
 			corrections: ["answer = num MOD num2"],
-			explanation: "MOD gives the remainder; DIV gives the quotient (how many times it goes in).",
+			explanation:
+				"MOD gives the remainder; DIV gives the quotient (how many times it goes in).",
 		},
 		category: "operators",
 	},
@@ -1908,7 +1939,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			lineNumber: 3,
 			errorType: "syntax",
 			corrections: ["f.close()"],
-			explanation: "The close method must be called on the file object.",
+			explanation: "The close subprogram must be called on the f variable.",
 		},
 		category: "files",
 	},
@@ -1920,22 +1951,11 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			lineNumber: 3,
 			errorType: "syntax",
 			corrections: ["f.close()"],
-			explanation: "Methods require parentheses even with no arguments.",
+			explanation: "Subprograms require brackets even with no arguments.",
 		},
 		category: "files",
 	},
-	{
-		description:
-			"This program generates a random integer between 1 and 6 (like a dice roll) and displays it.",
-		code: ["dice = random(1, 6)", 'print("You rolled")', "print(dic)"],
-		answer: {
-			lineNumber: 3,
-			errorType: "syntax",
-			corrections: ["print(dice)"],
-			explanation: 'The variable name "dice" is misspelled as "dic".',
-		},
-		category: "input-output",
-	},
+
 	{
 		description:
 			"This program checks if it's the weekend (Saturday or Sunday) and displays 'Weekend!' otherwise 'Weekday'.",
@@ -2002,7 +2022,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			lineNumber: 2,
 			errorType: "syntax",
 			corrections: ["sub = text.substring(2, 5)"],
-			explanation: "Method arguments must be separated by a comma.",
+			explanation: "Subprogram arguments must be separated by a comma.",
 		},
 		category: "strings",
 	},
@@ -2017,24 +2037,6 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			explanation: 'For loops counting down require "step -1".',
 		},
 		category: "iteration-for",
-	},
-	{
-		description:
-			"This program asks for an item price and quantity, calculates the total cost, and displays it.",
-		code: [
-			'price = input("Enter price")',
-			'quantity = input("Enter quantity")',
-			"total = price * quantity",
-			'print("Total cost")',
-			"print(totla)",
-		],
-		answer: {
-			lineNumber: 5,
-			errorType: "syntax",
-			corrections: ["print(total)"],
-			explanation: 'The variable name "total" is misspelled as "totla".',
-		},
-		category: "input-output",
 	},
 	{
 		description:
@@ -2126,7 +2128,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			errorType: "syntax",
 			corrections: ["print(names[1])"],
 			explanation:
-				"Array elements are accessed with square brackets [], not parentheses ().",
+				"Array elements are accessed with square brackets [], not round brackets ().",
 		},
 		category: "arrays",
 	},
