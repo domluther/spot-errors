@@ -244,19 +244,18 @@ export function ErrorSpotterQuiz({
 		// Check correction
 		// Helper function to normalize spacing around operators while preserving significant spaces
 		const normalizeCode = (code: string): string => {
-			return code
-				.replace(/\s+/g, " ") // Collapse multiple spaces to single space
-				.trim()
-				.replace(/'/g, '"') // Normalize quotes
-				// Remove spaces around operators
-				.replace(/\s*([+\-*/%=<>!&|])\s*/g, "$1")
-				// Remove spaces around brackets, parentheses, commas
-				.replace(/\s*([()[\]{},;:])\s*/g, "$1")
-				// Handle compound operators (restore them after individual character replacement)
-				.replace(/([<>!=])([=])/g, "$1$2")
-				.replace(/([&|])([&|])/g, "$1$2")
-				.replace(/([+\-])([=])/g, "$1$2")
-				.replace(/([*/%])([=])/g, "$1$2");
+			return (
+				code
+					.replace(/\s+/g, " ") // Collapse multiple spaces to single space
+					.trim()
+					.replace(/'/g, '"') // Normalize quotes
+					// Remove spaces around operators
+					.replace(/\s*([+\-*/%=<>!&|])\s*/g, "$1")
+					// Remove spaces around brackets, parentheses, commas
+					.replace(/\s*([()[\]{},;:])\s*/g, "$1")
+					// Handle compound operators (restore them after individual character replacement)
+					.replace(/([<>!=])([=])/g, "$1$2")
+			);
 		};
 
 		const normalizedUser = normalizeCode(correction);
