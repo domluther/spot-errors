@@ -242,17 +242,28 @@ export function ErrorSpotterQuiz({
 		}
 
 		// Check correction
-		const normalizedUser = correction
-			.replace(/\s+/g, " ")
-			.trim()
-			.replace(/'/g, '"');
+		// Helper function to normalize spacing around operators while preserving significant spaces
+		const normalizeCode = (code: string): string => {
+			return code
+				.replace(/\s+/g, " ") // Collapse multiple spaces to single space
+				.trim()
+				.replace(/'/g, '"') // Normalize quotes
+				// Remove spaces around operators
+				.replace(/\s*([+\-*/%=<>!&|])\s*/g, "$1")
+				// Remove spaces around brackets, parentheses, commas
+				.replace(/\s*([()[\]{},;:])\s*/g, "$1")
+				// Handle compound operators (restore them after individual character replacement)
+				.replace(/([<>!=])([=])/g, "$1$2")
+				.replace(/([&|])([&|])/g, "$1$2")
+				.replace(/([+\-])([=])/g, "$1$2")
+				.replace(/([*/%])([=])/g, "$1$2");
+		};
+
+		const normalizedUser = normalizeCode(correction);
 		let correctionCorrect = false;
 
 		for (const correctAnswer of answer.corrections) {
-			const normalizedCorrect = correctAnswer
-				.replace(/\s+/g, " ")
-				.trim()
-				.replace(/'/g, '"');
+			const normalizedCorrect = normalizeCode(correctAnswer);
 			if (normalizedUser === normalizedCorrect) {
 				correctionCorrect = true;
 				break;

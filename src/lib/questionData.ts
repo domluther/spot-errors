@@ -238,7 +238,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			"print(reslt)",
 		],
 		answer: {
-			lineNumber: 4,
+			lineNumber: 3,
 			errorType: "syntax",
 			corrections: ["print(result)"],
 			explanation: 'The variable name "result" is misspelled as "reslt".',
