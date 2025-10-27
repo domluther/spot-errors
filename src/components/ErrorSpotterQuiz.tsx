@@ -442,13 +442,22 @@ export function ErrorSpotterQuiz({
 			{/* Question Card */}
 			<Card>
 				<CardHeader>
-					<div className="p-4 border-l-4 rounded bg-question-prompt-bg border-question-prompt-bg">
+					<div className="relative p-4 border-l-4 rounded bg-question-prompt-bg border-question-prompt-bg">
 						<CardTitle className="mb-2 text-xl text-question-prompt-text">
 							What the program should do:
 						</CardTitle>
 						<CardDescription className="text-base text-question-prompt-text/80">
 							{currentQuestion.description}
 						</CardDescription>
+						<Button
+							onClick={generateQuestion}
+							variant="outline"
+							size="sm"
+							className="absolute top-2 right-2 text-xs"
+							disabled={showFeedback}
+						>
+							Skip
+						</Button>
 					</div>
 				</CardHeader>
 
