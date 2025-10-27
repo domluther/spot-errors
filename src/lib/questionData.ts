@@ -49,8 +49,8 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program calculates the area of a rectangle by multiplying length and width, then displays the result.",
 		code: [
-			'length = input("Enter length")',
-			'width = input("Enter width")',
+			'length = int(input("Enter length"))',
+			'width = int(input("Enter width"))',
 			"area = length * width",
 			'print("Area is " + area',
 		],
@@ -66,7 +66,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program asks for a temperature in Celsius and converts it to Fahrenheit using the formula F = C * 9/5 + 32.",
 		code: [
-			'c = input("Enter temperature in Celsius")',
+			'c = int(input("Enter temperature in Celsius"))',
 			"f = c * 9/5 + 32",
 			'print("Temperature in Fahrenheit is " + c)',
 		],
@@ -94,9 +94,9 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program calculates the average of three test scores by adding them together and dividing by 3.",
 		code: [
-			'score1 = input("Enter score 1")',
-			'score2 = input("Enter score 2")',
-			'score3 = input("Enter score 3")',
+			'score1 = int(input("Enter score 1"))',
+			'score2 = int(input("Enter score 2"))',
+			'score3 = int(input("Enter score 3"))',
 			"average = (score1 + score2 + score3) / 3",
 			'print("Average is " + averge)',
 		],
@@ -130,7 +130,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			"This program creates a constant for VAT rate (20%) and calculates the VAT on a price, then displays the total price including VAT.",
 		code: [
 			"const VAT = 0.2",
-			'price = input("Enter price")',
+			'price = int(input("Enter price"))',
 			"vatAmount = price * VAT",
 			"total = price + vatAmount",
 			'print("Total with VAT is " + totl)',
@@ -163,8 +163,8 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program calculates the area of a rectangle by multiplying length and width, then displays the result.",
 		code: [
-			'length = input("Enter length")',
-			'width = input("Enter width")',
+			'length = int(input("Enter length"))',
+			'width = int(input("Enter width"))',
 			"area = length * width",
 			'print("Area is " + area',
 		],
@@ -232,8 +232,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program reads a number as a string and casts it to a float, then adds 2.5 to it.",
 		code: [
-			'numStr = input("Enter a decimal number")',
-			"numFloat = float(numStr)",
+			'numFloat = float(input("Enter a decimal number"))',
 			"result = numFloat + 2.5",
 			"print(reslt)",
 		],
@@ -261,8 +260,8 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program asks for an item price and quantity, calculates the total cost, and displays it.",
 		code: [
-			'price = input("Enter price")',
-			'quantity = input("Enter quantity")',
+			'price = float(input("Enter price"))',
+			'quantity = int(input("Enter quantity"))',
 			"total = price * quantity",
 			'print("Total cost is " + price)',
 		],
@@ -279,7 +278,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program calculates a 10% discount on a price and displays the discounted price.",
 		code: [
-			'price = input("Enter price")',
+			'price = float(input("Enter price"))',
 			"discount = price * 0.1",
 			"newprice = price + discount",
 			'print("Discounted price is " + newprice)',
@@ -297,7 +296,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program calculates the perimeter of a square by multiplying the side length by 4.",
 		code: [
-			'side = input("Enter side length")',
+			'side = float(input("Enter side length"))',
 			"perimeter = side + 4",
 			'print("Perimeter is " + perimeter)',
 		],
@@ -314,7 +313,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program calculates how many weeks are in a given number of days by dividing the days by 7.",
 		code: [
-			'days = input("Enter number of days")',
+			'days = int(input("Enter number of days"))',
 			"weeks = days MOD 7",
 			'print("Number of weeks " + weeks)',
 		],
@@ -348,8 +347,8 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program calculates the area of a rectangle by multiplying length and width, then displays the result.",
 		code: [
-			'length = input("Enter length")',
-			'width = input("Enter width")',
+			'length = float(input("Enter length"))',
+			'width = float(input("Enter width"))',
 			"area = length + width",
 			'print("Area is " + area)',
 		],
@@ -366,7 +365,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program calculates a 10% discount on a price and displays the discounted price.",
 		code: [
-			'price = input("Enter price")',
+			'price = float(input("Enter price"))',
 			"discount = price * 0.01",
 			"newprice = price - discount",
 			'print("Discounted price is " + newprice)',
@@ -383,7 +382,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program calculates a 10% discount on a price and displays the discounted price.",
 		code: [
-			'price = input("Enter price")',
+			'price = float(input("Enter price"))',
 			"discount = price * 0.1",
 			"newprice = price + discount",
 			'print("Discounted price is " + newprice)',
@@ -400,7 +399,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program calculates a 10% discount on a price and displays the discounted price.",
 		code: [
-			'price = input("Enter price")',
+			'price = float(input("Enter price"))',
 			"price / 10 = discount",
 			"newprice = discount - price",
 			'print("Discounted price is " + newprice)',
@@ -418,9 +417,9 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program calculates the average of three test scores by adding them together and dividing by 3.",
 		code: [
-			'score1 = input("Enter score 1")',
-			'score2 = input("Enter score 2")',
-			'score3 = input("Enter score 3")',
+			'score1 = int(input("Enter score 1"))',
+			'score2 = int(input("Enter score 2"))',
+			'score3 = int(input("Enter score 3"))',
 			"average = (score1 + score2 + score3) * 3",
 			'print("Average is " + average")',
 		],
@@ -437,9 +436,28 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program calculates the average of three test scores by adding them together and dividing by 3.",
 		code: [
-			'score1 = input("Enter score 1")',
-			'score2 = input("Enter score 2")',
-			'score3 = input("Enter score 3")',
+			'score1 = int(input("Enter score 1")',
+			'score2 = int(input("Enter score 2"))',
+			'score3 = int(input("Enter score 3"))',
+			"average = (score1 + score2 + score3) / 3",
+			'print("Average is " + average")',
+		],
+		answer: {
+			lineNumber: 1,
+			errorType: "syntax",
+			corrections: ['score1 = int(input("Enter score 1"))'],
+			explanation:
+				"The int is missing its closing bracket.",
+		},
+		category: "operators",
+	},
+	{
+		description:
+			"This program calculates the average of three test scores by adding them together and dividing by 3.",
+		code: [
+			'score1 = int(input("Enter score 1"))',
+			'score2 = int(input("Enter score 2"))',
+			'score3 = int(input("Enter score 3"))',
 			"average = (score1 + score1 + score1) * 3",
 			'print("Average is " + average")',
 		],
@@ -454,9 +472,27 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 	},
 	{
 		description:
+			"This program calculates the average of three test scores by adding them together and dividing by 3.",
+		code: [
+			'score1 = int(input("Enter score 1"))',
+			'score2 = int(input("Enter score 2"))',
+			'score3 = int(input("Enter score 3"))',
+			"average = score1 + score2 + score3 / 3",
+			'print("Average is " + average")',
+		],
+		answer: {
+			lineNumber: 4,
+			errorType: "logic",
+			corrections: ["average = (score1 + score2 + score3) / 3"],
+			explanation:
+				"Brackets are needed around the sum to ensure the total is divided by 3, not just score3.",
+		},
+		category: "operators",
+	},	{
+		description:
 			"This program calculates the perimeter of a square by multiplying the side length by 4.",
 		code: [
-			'side = input("Enter side length")',
+			'side = float(input("Enter side length"))',
 			"perimeter = side * side",
 			'print("Perimeter is " + perimeter)',
 		],
@@ -474,11 +510,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			"This program creates a constant for VAT rate (20%) and calculates the VAT on a price, then displays the total price with VAT added on.",
 		code: [
 			"const VAT = 0.2",
-			'price = input("Enter price")',
+			'price = float(input("Enter price"))',
 			"vatAmount = price * VAT",
 			"total = price - vatAmount",
-			'print("Total with VAT")',
-			"print(total)",
+			'print("Total with VAT is " + total)',
 		],
 		answer: {
 			lineNumber: 4,
@@ -492,7 +527,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program calculates how many whole weeks are in a given number of days by dividing the days by 7.",
 		code: [
-			'days = input("Enter number of days")',
+			'days = int(input("Enter number of days"))',
 			"weeks = days / 7",
 			'print("Number of weeks is " + weeks)',
 		],
@@ -813,7 +848,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			"This program generates a random number between 1 and 100 and asks the user to guess it. It tells them if their guess is too high.",
 		code: [
 			"target = random(1, 100)",
-			'guess = input("Guess the number")',
+			'guess = int(input("Guess the number"))',
 			"if guess > target then",
 			'    print("Too low")',
 			"endif",
@@ -832,7 +867,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program checks if a person is eligible to vote (age 18 or over) and displays 'Eligible' or 'Not eligible'.",
 		code: [
-			'age = input("Enter your age")',
+			'age = int(input("Enter your age"))',
 			"if age == 18 then",
 			'    print("Eligible")',
 			"else",
@@ -851,7 +886,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program checks if a number is divisible by 3 by using the MOD operator. If there's no remainder, it displays 'Divisible by 3'.",
 		code: [
-			'num = input("Enter a number")',
+			'num = int(input("Enter a number"))',
 			"if num MOD 3 = 0 then",
 			'    print("Divisible by 3")',
 			"endif",
@@ -869,8 +904,8 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program asks for two numbers and displays which one is larger. If they're equal, it displays 'Equal'.",
 		code: [
-			'num1 = input("Enter first number")',
-			'num2 = input("Enter second number")',
+			'num1 = int(input("Enter first number"))',
+			'num2 = int(input("Enter second number"))',
 			"if num1 > num2 then",
 			'    print("First is larger")',
 			"elseif num1 > num2 then",
@@ -892,7 +927,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program checks if a student's grade is A, B, C, or D based on their score. 70+ is A, 60+ is B, 50+ is C, 40+ is D.",
 		code: [
-			'score = input("Enter score")',
+			'score = int(input("Enter score"))',
 			"if score >= 70 then",
 			'    print("Grade A")',
 			"elseif score >= 60 then",
@@ -916,7 +951,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program asks the user to enter a number. It then checks if the number is even or odd and displays the appropriate message.",
 		code: [
-			'num = input("enter a number")',
+			'num = int(input("enter a number"))',
 			"if num MOD 2 = 0 then",
 			'    print("even")',
 			"else",
@@ -936,8 +971,8 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program asks the user to enter two numbers, adds them together, and checks if the total is 10 or more. It should display 'success' if the total is at least 10, or 'warning' if it's less than 10.",
 		code: [
-			'num1 = input("Enter a number")',
-			'num2 = input("Enter a number")',
+			'num1 = int(input("Enter a number"))',
+			'num2 = int(input("Enter a number"))',
 			"total = num1 - num2",
 			"if total >= 10 then",
 			'    print("success")',
@@ -958,8 +993,8 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program asks the user to enter two numbers, adds them together, and checks if the total is 10 or more. It should display 'success' if the total is at least 10, or 'warning' if it's less than 10.",
 		code: [
-			'num1 = input("Enter a number")',
-			'num2 = input("Enter a number")',
+			'num1 = int(input("Enter a number"))',
+			'num2 = int(input("Enter a number"))',
 			"total = num1 + num2",
 			"if total > 10 then",
 			'    print("success")',
@@ -999,7 +1034,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program asks the user for their age and checks if they are an adult (18 or over). It should display 'Adult' or 'Minor' accordingly.",
 		code: [
-			'age = input("Enter your age")',
+			'age = int(input("Enter your age"))',
 			"if age > 18 then",
 			'    print("Adult")',
 			"else",
@@ -1019,7 +1054,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program checks if a number is positive, negative, or zero and displays the appropriate message.",
 		code: [
-			'num = input("Enter a number")',
+			'num = int(input("Enter a number"))',
 			"if num > 0 then",
 			'    print("Positive")',
 			"elseif num = 0 then",
@@ -1042,7 +1077,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			"This program generates a random number between 1 and 100 and asks the user to guess it. It tells them if their guess is too high.",
 		code: [
 			"target = random(1, 100)",
-			'guess = input("Guess the number")',
+			'guess = int(input("Guess the number"))',
 			"if guess < target then",
 			'    print("Too high")',
 			"endif",
@@ -1060,7 +1095,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program checks if a person is eligible to vote (age 18 or over) and displays 'Eligible' or 'Not eligible'.",
 		code: [
-			'age = input("Enter your age")',
+			'age = int(input("Enter your age"))',
 			"if age <= 18 then",
 			'    print("Eligible")',
 			"else",
@@ -1080,7 +1115,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program checks if a number is divisible by 3 by using the MOD operator. If there's no remainder, it displays 'Divisible by 3'.",
 		code: [
-			'num = input("Enter a number")',
+			'num = int(input("Enter a number"))',
 			"if num DIV 3 == 0 then",
 			'    print("Divisible by 3")',
 			"endif",
@@ -1097,7 +1132,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program checks if a student's grade is A, B, C, or D based on their score. 70+ is A, 60+ is B, 50+ is C, 40+ is D.",
 		code: [
-			'score = input("Enter score")',
+			'score = int(input("Enter score"))',
 			"if score >= 70 then",
 			'    print("Grade A")',
 			"elf score >= 60 then",
@@ -1120,7 +1155,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program asks the user to enter a number. It then checks if the number is even or odd and displays the appropriate message.",
 		code: [
-			'num = input("enter a number")',
+			'num = int(input("enter a number"))',
 			"if num MOD 2 == 0 then",
 			'    print("even")',
 			"elseif",

@@ -80,7 +80,7 @@ export function ErrorSpotterQuiz({
 	const [feedback, setFeedback] = useState<ReactElement | string>("");
 	const [score, setScore] = useState(0);
 	const [selectedCategories, setSelectedCategories] = useState<Set<Category>>(
-		new Set(CATEGORIES.map((c) => c.id)), // All selected by default
+		new Set(CATEGORIES.filter((c) => c.level === 1).map((c) => c.id)), // Only level 1 categories selected by default
 	);
 
 	// Get current mode stats - with fallback for undefined
@@ -97,6 +97,30 @@ export function ErrorSpotterQuiz({
 			? Math.round((modeStats.correct / modeStats.attempts) * 100)
 			: 0;
 	const points = modeStats ? modeStats.points : 0;
+
+	// Helper function to encode code for ERL IDE URL
+	const encodeForERL = useCallback((code: string): string => {
+		return code
+			.replace(/\\/g, "%5C") // Convert backslashes to %5C
+			.replace(/"/g, "%5C%22") // Convert double quotes to \\" -> %5C%22
+			.replace(/'/g, "%27") // Convert single quotes to %27
+			.replace(/\?/g, "%3F") // Convert question marks to %3F
+			.replace(/=/g, "%3D") // Convert equals signs to %3D
+			.replace(/\+/g, "%2B") // Convert + operators to %2B
+			.replace(/\n/g, "%5Cn") // Convert newlines to %5Cn
+			.replace(/ /g, "+") // Convert spaces to +
+			.replace(/\(/g, "%28") // Convert ( to %28
+			.replace(/\)/g, "%29"); // Convert ) to %29
+	}, []);
+
+	// Generate ERL IDE URL
+	const generateERLURL = useCallback(
+		(code: string): string => {
+			const encodedCode = encodeForERL(code);
+			return `https://www.examreferencelanguage.co.uk/index.php?code=%5B%7B%22name%22%3A%22code%22%2C%22content%22%3A%22${encodedCode}%22%7D%5D`;
+		},
+		[encodeForERL],
+	);
 
 	// Generate a random question
 	const generateQuestion = useCallback(() => {
@@ -430,20 +454,30 @@ export function ErrorSpotterQuiz({
 
 				<CardContent className="space-y-6">
 					{/* Code Block */}
-					<div className="p-4 overflow-x-auto font-mono text-base border-2 rounded-lg bg-code-display-bg border-border">
-						{currentQuestion.code.map((line, index) => (
-							<div
-								key={`line-${index}-${line.substring(0, 20)}`}
-								className="flex mb-1"
-							>
-								<span className="text-foreground/60 dark:text-code-line-number min-w-[40px] text-right pr-4 border-r-2 border-border mr-4 select-none">
-									{String(index + 1).padStart(2, "0")}
-								</span>
-								<span className="whitespace-pre text-foreground dark:text-code-display-text">
-									{line}
-								</span>
-							</div>
-						))}
+					<div className="relative">
+						<div className="p-4 overflow-x-auto font-mono text-base border-2 rounded-lg bg-code-display-bg border-border">
+							{currentQuestion.code.map((line, index) => (
+								<div
+									key={`line-${index}-${line.substring(0, 20)}`}
+									className="flex mb-1"
+								>
+									<span className="text-foreground/60 dark:text-code-line-number min-w-[40px] text-right pr-4 border-r-2 border-border mr-4 select-none">
+										{String(index + 1).padStart(2, "0")}
+									</span>
+									<span className="whitespace-pre text-foreground dark:text-code-display-text">
+										{line}
+									</span>
+								</div>
+							))}
+						</div>
+						<a
+							href={generateERLURL(currentQuestion.code.join("\n"))}
+							target="_blank"
+							rel="noopener noreferrer"
+							className="absolute top-2 right-2 px-3 py-1.5 text-xs font-medium bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors shadow-md"
+						>
+							Reference Guide
+						</a>
 					</div>{" "}
 					{/* Input Form */}
 					<div className="p-6 rounded-lg space-y-4 bg-muted/30">
