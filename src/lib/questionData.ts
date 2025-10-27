@@ -49,8 +49,8 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program calculates the area of a rectangle by multiplying length and width, then displays the result.",
 		code: [
-			'length = int(input("Enter length"))',
-			'width = int(input("Enter width"))',
+			'length = int(input("Enter length "))',
+			'width = int(input("Enter width "))',
 			"area = length * width",
 			'print("Area is " + area',
 		],
@@ -66,7 +66,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program asks for a temperature in Celsius and converts it to Fahrenheit using the formula F = C * 9/5 + 32.",
 		code: [
-			'c = int(input("Enter temperature in Celsius"))',
+			'c = int(input("Enter temperature in Celsius "))',
 			"f = c * 9/5 + 32",
 			'print("Temperature in Fahrenheit is " + c)',
 		],
@@ -74,14 +74,14 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			lineNumber: 3,
 			errorType: "logic",
 			corrections: ['print("Temperature in Fahrenheit is " + f)'],
-			explanation: 'It should use the fahrenheit variable instead of celsius.',
+			explanation: "It should use the fahrenheit variable instead of celsius.",
 		},
 		category: "input-output",
 	},
 	{
 		description:
 			"This program asks the user to input their name and then displays a personalized greeting message.",
-		code: ['name = input("Enter your name")', 'print("Hello " + name'],
+		code: ['name = input("Enter your name ")', 'print("Hello " + name'],
 		answer: {
 			lineNumber: 2,
 			errorType: "syntax",
@@ -94,9 +94,9 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program calculates the average of three test scores by adding them together and dividing by 3.",
 		code: [
-			'score1 = int(input("Enter score 1"))',
-			'score2 = int(input("Enter score 2"))',
-			'score3 = int(input("Enter score 3"))',
+			'score1 = int(input("Enter score 1 "))',
+			'score2 = int(input("Enter score 2 "))',
+			'score3 = int(input("Enter score 3 "))',
 			"average = (score1 + score2 + score3) / 3",
 			'print("Average is " + averge)',
 		],
@@ -130,7 +130,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			"This program creates a constant for VAT rate (20%) and calculates the VAT on a price, then displays the total price including VAT.",
 		code: [
 			"const VAT = 0.2",
-			'price = int(input("Enter price"))',
+			'price = int(input("Enter price "))',
 			"vatAmount = price * VAT",
 			"total = price + vatAmount",
 			'print("Total with VAT is " + totl)',
@@ -147,7 +147,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program asks for a sentence and displays how many characters are in it.",
 		code: [
-			'sentence = input("Enter a sentence")',
+			'sentence = input("Enter a sentence ")',
 			"length = len(sentence)",
 			'print("Character count is " + lenght)',
 		],
@@ -163,8 +163,8 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program calculates the area of a rectangle by multiplying length and width, then displays the result.",
 		code: [
-			'length = int(input("Enter length"))',
-			'width = int(input("Enter width"))',
+			'length = int(input("Enter length "))',
+			'width = int(input("Enter width "))',
 			"area = length * width",
 			'print("Area is " + area',
 		],
@@ -179,7 +179,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 	{
 		description:
 			"This program asks the user to input their name and then displays a personalized greeting message.",
-		code: ['name = input("Enter your name")', 'print("Hello " . name)'],
+		code: ['name = input("Enter your name ")', 'print("Hello " . name)'],
 		answer: {
 			lineNumber: 2,
 			errorType: "syntax",
@@ -191,11 +191,11 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 	{
 		description:
 			"This program asks the user to input their name and then displays a personalized greeting message.",
-		code: ['name = imput("Enter your name")', 'print("Hello " + name)'],
+		code: ['name = imput("Enter your name ")', 'print("Hello " + name)'],
 		answer: {
 			lineNumber: 1,
 			errorType: "syntax",
-			corrections: ['name = input("Enter your name")'],
+			corrections: ['name = input("Enter your name ")'],
 			explanation: 'The input function is misspelled as "imput".',
 		},
 		category: "input-output",
@@ -204,7 +204,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program converts a character to its ASCII code and displays it.",
 		code: [
-			'char = input("Enter a character")',
+			'char = input("Enter a character ")',
 			"code = ASC(char)",
 			'print("ASCII code is " + "code")',
 		],
@@ -223,8 +223,9 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		answer: {
 			lineNumber: 1,
 			errorType: "syntax",
-			corrections: ['lives = 3'],
-			explanation: "The variable name (lives) comes before the assignment operator (=).",
+			corrections: ["lives = 3"],
+			explanation:
+				"The variable name (lives) comes before the assignment operator (=).",
 		},
 		category: "input-output",
 	},
@@ -232,7 +233,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program reads a number as a string and casts it to a float, then adds 2.5 to it.",
 		code: [
-			'numFloat = float(input("Enter a decimal number"))',
+			'numFloat = float(input("Enter a decimal number "))',
 			"result = numFloat + 2.5",
 			"print(reslt)",
 		],
@@ -252,7 +253,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			lineNumber: 2,
 			errorType: "syntax",
 			corrections: ['print("You rolled " + dice)'],
-			explanation: 'The print statement is missing a + for concatenation.',
+			explanation: "The print statement is missing a + for concatenation.",
 		},
 		category: "input-output",
 	},
@@ -260,8 +261,8 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program asks for an item price and quantity, calculates the total cost, and displays it.",
 		code: [
-			'price = float(input("Enter price"))',
-			'quantity = int(input("Enter quantity"))',
+			'price = float(input("Enter price "))',
+			'quantity = int(input("Enter quantity "))',
 			"total = price * quantity",
 			'print("Total cost is " + price)',
 		],
@@ -269,7 +270,8 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			lineNumber: 4,
 			errorType: "logic",
 			corrections: ['print("Total cost is " + total)'],
-			explanation: 'The variable name "total" should be used instead of "price".',
+			explanation:
+				'The variable name "total" should be used instead of "price".',
 		},
 		category: "input-output",
 	},
@@ -278,7 +280,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program calculates a 10% discount on a price and displays the discounted price.",
 		code: [
-			'price = float(input("Enter price"))',
+			'price = float(input("Enter price "))',
 			"discount = price * 0.1",
 			"newprice = price + discount",
 			'print("Discounted price is " + newprice)',
@@ -296,7 +298,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program calculates the perimeter of a square by multiplying the side length by 4.",
 		code: [
-			'side = float(input("Enter side length"))',
+			'side = float(input("Enter side length "))',
 			"perimeter = side + 4",
 			'print("Perimeter is " + perimeter)',
 		],
@@ -313,7 +315,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program calculates how many weeks are in a given number of days by dividing the days by 7.",
 		code: [
-			'days = int(input("Enter number of days"))',
+			'days = int(input("Enter number of days "))',
 			"weeks = days MOD 7",
 			'print("Number of weeks " + weeks)',
 		],
@@ -329,12 +331,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 	{
 		description:
 			"This program calculates 2 to the power of 5 and displays the result.",
-		code: [
-			"base = 2",
-			"power = 5",
-			"result = base * power",
-			"print(result)",
-		],
+		code: ["base = 2", "power = 5", "result = base * power", "print(result)"],
 		answer: {
 			lineNumber: 3,
 			errorType: "logic",
@@ -347,8 +344,8 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program calculates the area of a rectangle by multiplying length and width, then displays the result.",
 		code: [
-			'length = float(input("Enter length"))',
-			'width = float(input("Enter width"))',
+			'length = float(input("Enter length "))',
+			'width = float(input("Enter width "))',
 			"area = length + width",
 			'print("Area is " + area)',
 		],
@@ -365,7 +362,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program calculates a 10% discount on a price and displays the discounted price.",
 		code: [
-			'price = float(input("Enter price"))',
+			'price = float(input("Enter price "))',
 			"discount = price * 0.01",
 			"newprice = price - discount",
 			'print("Discounted price is " + newprice)',
@@ -382,7 +379,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program calculates a 10% discount on a price and displays the discounted price.",
 		code: [
-			'price = float(input("Enter price"))',
+			'price = float(input("Enter price "))',
 			"discount = price * 0.1",
 			"newprice = price + discount",
 			'print("Discounted price is " + newprice)',
@@ -391,7 +388,8 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			lineNumber: 3,
 			errorType: "logic",
 			corrections: ["newprice = price - discount"],
-			explanation: "The discount should be subtracted from the price, not added.",
+			explanation:
+				"The discount should be subtracted from the price, not added.",
 		},
 		category: "operators",
 	},
@@ -399,7 +397,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program calculates a 10% discount on a price and displays the discounted price.",
 		code: [
-			'price = float(input("Enter price"))',
+			'price = float(input("Enter price "))',
 			"price / 10 = discount",
 			"newprice = discount - price",
 			'print("Discounted price is " + newprice)',
@@ -417,9 +415,9 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program calculates the average of three test scores by adding them together and dividing by 3.",
 		code: [
-			'score1 = int(input("Enter score 1"))',
-			'score2 = int(input("Enter score 2"))',
-			'score3 = int(input("Enter score 3"))',
+			'score1 = int(input("Enter score 1 "))',
+			'score2 = int(input("Enter score 2 "))',
+			'score3 = int(input("Enter score 3 "))',
 			"average = (score1 + score2 + score3) * 3",
 			'print("Average is " + average")',
 		],
@@ -436,18 +434,17 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program calculates the average of three test scores by adding them together and dividing by 3.",
 		code: [
-			'score1 = int(input("Enter score 1")',
-			'score2 = int(input("Enter score 2"))',
-			'score3 = int(input("Enter score 3"))',
+			'score1 = int(input("Enter score 1 ")',
+			'score2 = int(input("Enter score 2 "))',
+			'score3 = int(input("Enter score 3 "))',
 			"average = (score1 + score2 + score3) / 3",
 			'print("Average is " + average")',
 		],
 		answer: {
 			lineNumber: 1,
 			errorType: "syntax",
-			corrections: ['score1 = int(input("Enter score 1"))'],
-			explanation:
-				"The int is missing its closing bracket.",
+			corrections: ['score1 = int(input("Enter score 1 "))'],
+			explanation: "The int is missing its closing bracket.",
 		},
 		category: "operators",
 	},
@@ -455,9 +452,9 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program calculates the average of three test scores by adding them together and dividing by 3.",
 		code: [
-			'score1 = int(input("Enter score 1"))',
-			'score2 = int(input("Enter score 2"))',
-			'score3 = int(input("Enter score 3"))',
+			'score1 = int(input("Enter score 1 "))',
+			'score2 = int(input("Enter score 2 "))',
+			'score3 = int(input("Enter score 3 "))',
 			"average = (score1 + score1 + score1) * 3",
 			'print("Average is " + average")',
 		],
@@ -474,9 +471,9 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program calculates the average of three test scores by adding them together and dividing by 3.",
 		code: [
-			'score1 = int(input("Enter score 1"))',
-			'score2 = int(input("Enter score 2"))',
-			'score3 = int(input("Enter score 3"))',
+			'score1 = int(input("Enter score 1 "))',
+			'score2 = int(input("Enter score 2 "))',
+			'score3 = int(input("Enter score 3 "))',
 			"average = score1 + score2 + score3 / 3",
 			'print("Average is " + average")',
 		],
@@ -488,11 +485,12 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 				"Brackets are needed around the sum to ensure the total is divided by 3, not just score3.",
 		},
 		category: "operators",
-	},	{
+	},
+	{
 		description:
 			"This program calculates the perimeter of a square by multiplying the side length by 4.",
 		code: [
-			'side = float(input("Enter side length"))',
+			'side = float(input("Enter side length "))',
 			"perimeter = side * side",
 			'print("Perimeter is " + perimeter)',
 		],
@@ -510,7 +508,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			"This program creates a constant for VAT rate (20%) and calculates the VAT on a price, then displays the total price with VAT added on.",
 		code: [
 			"const VAT = 0.2",
-			'price = float(input("Enter price"))',
+			'price = float(input("Enter price "))',
 			"vatAmount = price * VAT",
 			"total = price - vatAmount",
 			'print("Total with VAT is " + total)',
@@ -527,7 +525,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program calculates how many whole weeks are in a given number of days by dividing the days by 7.",
 		code: [
-			'days = int(input("Enter number of days"))',
+			'days = int(input("Enter number of days "))',
 			"weeks = days / 7",
 			'print("Number of weeks is " + weeks)',
 		],
@@ -543,12 +541,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 	{
 		description:
 			"This program calculates 2 to the power of 5 and displays the result.",
-		code: [
-			"base = 2",
-			"power = 5",
-			"result = base + power",
-			"print(result)",
-		],
+		code: ["base = 2", "power = 5", "result = base + power", "print(result)"],
 		answer: {
 			lineNumber: 3,
 			errorType: "logic",
@@ -585,7 +578,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program calculates the cube of a number (number to the power of 3).",
 		code: [
-			'num = input("Enter a number")',
+			'num = input("Enter a number ")',
 			"cube = num * 3",
 			'print("Cubed, that is " + cube)',
 		],
@@ -602,14 +595,18 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			"This program calculates the area of a circle using the formula π × r².",
 		code: [
 			"const pi = 3.14",
-			'radius = input("Enter radius")',
+			'radius = input("Enter radius ")',
 			"area = pi * radius",
 			'print("Area is " + area)',
 		],
 		answer: {
 			lineNumber: 3,
 			errorType: "logic",
-			corrections: ["area = pi * radius * radius", "area = pi * radius ^ 2", "area = pi * (radius ^ 2)"],
+			corrections: [
+				"area = pi * radius * radius",
+				"area = pi * radius ^ 2",
+				"area = pi * (radius ^ 2)",
+			],
 			explanation:
 				"The formula for circle area requires radius squared (r²), not just radius.",
 		},
@@ -659,7 +656,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			"This program creates a constant for VAT rate (20%) and calculates the VAT on a price, then displays the total price including VAT.",
 		code: [
 			"VAT = 0.2",
-			'price = input("Enter price")',
+			'price = input("Enter price ")',
 			"vatAmount = price * VAT",
 			"total = price + vatAmount",
 			'print("Total with VAT is " + total)',
@@ -706,7 +703,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program asks the user to enter a number. It then checks if the number is even or odd and displays the appropriate message.",
 		code: [
-			'num = input("enter a number")',
+			'num = input("enter a number ")',
 			"if num MOD 2 == 0 then",
 			'    print("even")',
 			"else",
@@ -725,7 +722,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program checks if a student has passed an exam. A pass requires a score of 40 or more.",
 		code: [
-			'score = input("Enter your score")',
+			'score = input("Enter your score ")',
 			"if score >= 40 then",
 			'    print("Pass")',
 			"else",
@@ -739,13 +736,13 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			explanation: "The string is missing its closing quote.",
 		},
 		category: "selection",
-	},	
+	},
 	{
 		description:
 			"This program asks the user to enter two numbers, adds them together, and checks if the total is 10 or more. It should display 'success' if the total is at least 10, or 'warning' if it's less than 10.",
 		code: [
-			'num1 = input("Enter a number")',
-			'num2 = input("Enter a number")',
+			'num1 = input("Enter a number ")',
+			'num2 = input("Enter a number ")',
 			"total = num1 + num1",
 			"if total >= 10 then",
 			'    print("success")',
@@ -766,7 +763,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program asks for a password and checks if it matches 'secret123'. If correct, it displays 'Access granted', otherwise 'Access denied'.",
 		code: [
-			'password = input("Enter password")',
+			'password = input("Enter password ")',
 			'if password = "secret123" then',
 			'    print("Access granted")',
 			"else",
@@ -786,7 +783,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program checks if a student has passed an exam. A pass requires a score of 40 or more.",
 		code: [
-			'score = input("Enter your score")',
+			'score = input("Enter your score ")',
 			"if score > 40 then",
 			'    print("Pass")',
 			"else",
@@ -806,7 +803,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program asks the user for their age and checks if they are an adult (18 or over). It should display 'Adult' or 'Minor' accordingly.",
 		code: [
-			'age = input("Enter your age")',
+			'age = input("Enter your age ")',
 			"if age >= 18 then",
 			'    print("Adult")',
 			"els",
@@ -825,7 +822,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program checks if a number is positive, negative, or zero and displays the appropriate message.",
 		code: [
-			'num = int(input("Enter a number"))',
+			'num = int(input("Enter a number "))',
 			"if num > 0 then",
 			'    print("Positive")',
 			"else num < 0 then",
@@ -837,7 +834,11 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		answer: {
 			lineNumber: 4,
 			errorType: "syntax",
-			corrections: ["elseif num < 0 then", "else if num < 0 then", "elif num < 0 then"],
+			corrections: [
+				"elseif num < 0 then",
+				"else if num < 0 then",
+				"elif num < 0 then",
+			],
 			explanation:
 				'else cannot have a condition; use "elseif" for additional conditions.',
 		},
@@ -848,7 +849,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			"This program generates a random number between 1 and 100 and asks the user to guess it. It tells them if their guess is too high.",
 		code: [
 			"target = random(1, 100)",
-			'guess = int(input("Guess the number"))',
+			'guess = int(input("Guess the number "))',
 			"if guess > target then",
 			'    print("Too low")',
 			"endif",
@@ -867,7 +868,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program checks if a person is eligible to vote (age 18 or over) and displays 'Eligible' or 'Not eligible'.",
 		code: [
-			'age = int(input("Enter your age"))',
+			'age = int(input("Enter your age "))',
 			"if age == 18 then",
 			'    print("Eligible")',
 			"else",
@@ -878,7 +879,8 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			lineNumber: 2,
 			errorType: "syntax",
 			corrections: ["if age >= 18 then"],
-			explanation: 'Greater than or equal (>=) should be used to include age 18.',
+			explanation:
+				"Greater than or equal (>=) should be used to include age 18.",
 		},
 		category: "selection",
 	},
@@ -886,7 +888,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program checks if a number is divisible by 3 by using the MOD operator. If there's no remainder, it displays 'Divisible by 3'.",
 		code: [
-			'num = int(input("Enter a number"))',
+			'num = int(input("Enter a number "))',
 			"if num MOD 3 = 0 then",
 			'    print("Divisible by 3")',
 			"endif",
@@ -904,8 +906,8 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program asks for two numbers and displays which one is larger. If they're equal, it displays 'Equal'.",
 		code: [
-			'num1 = int(input("Enter first number"))',
-			'num2 = int(input("Enter second number"))',
+			'num1 = int(input("Enter first number "))',
+			'num2 = int(input("Enter second number "))',
 			"if num1 > num2 then",
 			'    print("First is larger")',
 			"elseif num1 > num2 then",
@@ -927,7 +929,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program checks if a student's grade is A, B, C, or D based on their score. 70+ is A, 60+ is B, 50+ is C, 40+ is D.",
 		code: [
-			'score = int(input("Enter score"))',
+			'score = int(input("Enter score "))',
 			"if score >= 70 then",
 			'    print("Grade A")',
 			"elseif score >= 60 then",
@@ -951,7 +953,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program asks the user to enter a number. It then checks if the number is even or odd and displays the appropriate message.",
 		code: [
-			'num = int(input("enter a number"))',
+			'num = int(input("enter a number "))',
 			"if num MOD 2 = 0 then",
 			'    print("even")',
 			"else",
@@ -971,8 +973,8 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program asks the user to enter two numbers, adds them together, and checks if the total is 10 or more. It should display 'success' if the total is at least 10, or 'warning' if it's less than 10.",
 		code: [
-			'num1 = int(input("Enter a number"))',
-			'num2 = int(input("Enter a number"))',
+			'num1 = int(input("Enter a number "))',
+			'num2 = int(input("Enter a number "))',
 			"total = num1 - num2",
 			"if total >= 10 then",
 			'    print("success")',
@@ -993,8 +995,8 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program asks the user to enter two numbers, adds them together, and checks if the total is 10 or more. It should display 'success' if the total is at least 10, or 'warning' if it's less than 10.",
 		code: [
-			'num1 = int(input("Enter a number"))',
-			'num2 = int(input("Enter a number"))',
+			'num1 = int(input("Enter a number "))',
+			'num2 = int(input("Enter a number "))',
 			"total = num1 + num2",
 			"if total > 10 then",
 			'    print("success")',
@@ -1015,7 +1017,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program asks for a password and checks if it matches 'secret123'. If correct, it displays 'Access granted', otherwise 'Access denied'.",
 		code: [
-			'password = input("Enter password")',
+			'password = input("Enter password ")',
 			'if password == "secret123" then',
 			'    print("Access granted")',
 			"elseif",
@@ -1034,7 +1036,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program asks the user for their age and checks if they are an adult (18 or over). It should display 'Adult' or 'Minor' accordingly.",
 		code: [
-			'age = int(input("Enter your age"))',
+			'age = int(input("Enter your age "))',
 			"if age > 18 then",
 			'    print("Adult")',
 			"else",
@@ -1054,7 +1056,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program checks if a number is positive, negative, or zero and displays the appropriate message.",
 		code: [
-			'num = int(input("Enter a number"))',
+			'num = int(input("Enter a number "))',
 			"if num > 0 then",
 			'    print("Positive")',
 			"elseif num = 0 then",
@@ -1077,7 +1079,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			"This program generates a random number between 1 and 100 and asks the user to guess it. It tells them if their guess is too high.",
 		code: [
 			"target = random(1, 100)",
-			'guess = int(input("Guess the number"))',
+			'guess = int(input("Guess the number "))',
 			"if guess < target then",
 			'    print("Too high")',
 			"endif",
@@ -1095,7 +1097,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program checks if a person is eligible to vote (age 18 or over) and displays 'Eligible' or 'Not eligible'.",
 		code: [
-			'age = int(input("Enter your age"))',
+			'age = int(input("Enter your age "))',
 			"if age <= 18 then",
 			'    print("Eligible")',
 			"else",
@@ -1115,7 +1117,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program checks if a number is divisible by 3 by using the MOD operator. If there's no remainder, it displays 'Divisible by 3'.",
 		code: [
-			'num = int(input("Enter a number"))',
+			'num = int(input("Enter a number "))',
 			"if num DIV 3 == 0 then",
 			'    print("Divisible by 3")',
 			"endif",
@@ -1132,7 +1134,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program checks if a student's grade is A, B, C, or D based on their score. 70+ is A, 60+ is B, 50+ is C, 40+ is D.",
 		code: [
-			'score = int(input("Enter score"))',
+			'score = int(input("Enter score "))',
 			"if score >= 70 then",
 			'    print("Grade A")',
 			"elf score >= 60 then",
@@ -1155,7 +1157,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program asks the user to enter a number. It then checks if the number is even or odd and displays the appropriate message.",
 		code: [
-			'num = int(input("enter a number"))',
+			'num = int(input("enter a number "))',
 			"if num MOD 2 == 0 then",
 			'    print("even")',
 			"elseif",
@@ -1174,7 +1176,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program checks if it's the weekend (Saturday or Sunday) and displays 'Weekend!' otherwise 'Weekday'.",
 		code: [
-			'day = input("Enter day")',
+			'day = input("Enter day ")',
 			'if day == "Saturday" OR "Sunday" then',
 			'    print("Weekend!")',
 			"else",
@@ -1193,7 +1195,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program checks if it's the weekend (Saturday or Sunday) and displays 'Weekend!' otherwise 'Weekday'.",
 		code: [
-			'day = input("Enter day")',
+			'day = input("Enter day ")',
 			'if day == "Saturday" AND day == "Sunday" then',
 			'    print("Weekend!")',
 			"else",
@@ -1204,15 +1206,16 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			lineNumber: 2,
 			errorType: "syntax",
 			corrections: ['if day == "Saturday" OR day == "Sunday" then'],
-			explanation: "It should use OR, not AND, since a day can't be both Saturday and Sunday.",
+			explanation:
+				"It should use OR, not AND, since a day can't be both Saturday and Sunday.",
 		},
 		category: "selection",
-	},	
+	},
 	{
 		description:
 			"This program checks if a password is NOT equal to 'admin' and displays 'Access denied' if true.",
 		code: [
-			'password = input("Enter password")',
+			'password = input("Enter password ")',
 			'if NOT password = "admin" then',
 			'    print("Access denied")',
 			"endif",
@@ -1220,7 +1223,10 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		answer: {
 			lineNumber: 2,
 			errorType: "syntax",
-			corrections: ['if NOT password == "admin" then', 'if password != "admin" then'],
+			corrections: [
+				'if NOT password == "admin" then',
+				'if password != "admin" then',
+			],
 			explanation:
 				"The comparison operator should be == (equality) or != (not equal), not = (assignment).",
 		},
@@ -1231,7 +1237,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program extracts the first 3 characters from a string and displays them.",
 		code: [
-			'text = input("Enter some text")',
+			'text = input("Enter some text ")',
 			"first3 = text.left(3)",
 			"print(frst3)",
 		],
@@ -1242,11 +1248,12 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			explanation: 'The variable name "first3" is misspelled as "frst3".',
 		},
 		category: "strings",
-	},	{
+	},
+	{
 		description:
-			"This program asks for a username and checks if it's at least 5 characters long. If it is, it accepts it, otherwise it rejects it.",
+			"This program asks for a username and checks if it's at least 5 characters long. If it is, it accepts it, otherwise it rejects it saying 'Username too short'.",
 		code: [
-			'username = input("Enter username")',
+			'username = input("Enter username ")',
 			"if username.length >= 5 then",
 			'    print("Username accepted")',
 			"else",
@@ -1266,7 +1273,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program extracts the first 3 characters from a string and displays them.",
 		code: [
-			'text = input("Enter some text")',
+			'text = input("Enter some text ")',
 			"first3 = text.right(3)",
 			"print(first3)",
 		],
@@ -1282,7 +1289,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program converts a character to its ASCII code and displays it.",
 		code: [
-			'char = input("Enter a character")',
+			'char = input("Enter a character ")',
 			"code = CHR(char)",
 			'print("ASCII code is")',
 			"print(code)",
@@ -1299,7 +1306,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 	{
 		description: "This program converts a name to uppercase and displays it.",
 		code: [
-			'name = input("Enter your name")',
+			'name = input("Enter your name ")',
 			"upperName = name.lower",
 			"print(upperName)",
 		],
@@ -1315,7 +1322,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program extracts characters 3 to 6 from a string using substring and displays them.",
 		code: [
-			'text = input("Enter some text")',
+			'text = input("Enter some text ")',
 			"extract = text.substring(3, 6)",
 			"print(extact)",
 		],
@@ -1331,7 +1338,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program asks for a username and checks if it's at least 5 characters long. If it is, it accepts it, otherwise it rejects it.",
 		code: [
-			'username = input("Enter username")',
+			'username = input("Enter username ")',
 			"if username.length > 5 then",
 			'    print("Username accepted")',
 			"else",
@@ -1351,23 +1358,23 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program extracts the first 3 characters from a string and displays them.",
 		code: [
-			'text = input("Enter some text")',
-			"first3 = text.substring(0, 3)",
+			'text = input("Enter some text ")',
+			"first3 = text.substring(1, 3)",
 			"print(first3)",
 		],
 		answer: {
 			lineNumber: 2,
 			errorType: "logic",
-			corrections: ["first3 = text.left(3)"],
+			corrections: ["first3 = text.left(3)", "first3 = text.substring(0, 3)"],
 			explanation:
-				"Use the left() subprogram to get the first characters, not substring().",
+				"substring() starts at index 0. Either use left(3) or substring(0, 3).",
 		},
 		category: "strings",
 	},
 	{
 		description: "This program converts a name to uppercase and displays it.",
 		code: [
-			'name = input("Enter your name")',
+			'name = input("Enter your name ")',
 			"upperName = name.upper()",
 			"print(upperName)",
 		],
@@ -1383,17 +1390,17 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program asks for a sentence and displays how many characters are in it.",
 		code: [
-			'sentence = input("Enter a sentence")',
-			"length = sentence.length",
+			'sentence = input("Enter a sentence ")',
+			"length = sentence.len",
 			'print("Character count")',
 			"print(length)",
 		],
 		answer: {
 			lineNumber: 2,
-			errorType: "logic",
-			corrections: ["length = len(sentence)"],
+			errorType: "syntax",
+			corrections: ["length = sentence.length"],
 			explanation:
-				"Use the len() function to get string length, not the .length property.",
+				"Use the length property to get string length, not the len property.",
 		},
 		category: "strings",
 	},
@@ -1401,16 +1408,16 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program extracts characters 3 to 6 from a string using substring and displays them.",
 		code: [
-			'text = input("Enter some text")',
-			"extract = substring(3, 6)",
+			'text = input("Enter some text ")',
+			"extract = text.substring(3, 6)",
 			"print(extract)",
 		],
 		answer: {
 			lineNumber: 2,
 			errorType: "syntax",
-			corrections: ["extract = text.substring(3, 6)"],
+			corrections: ["extract = text.substring(3, 4)"],
 			explanation:
-				"The substring subprogram must be called on the text variable.",
+				"Characters 3 to 6 means starting at 3 and taking 4 characters (3,4,5,6).",
 		},
 		category: "strings",
 	},
@@ -1418,22 +1425,27 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program extracts the last 4 characters from a string and displays them.",
 		code: [
-			'text = input("Enter text")',
+			'text = input("Enter text ")',
 			"last4 = text.left(4)",
 			"print(last4)",
 		],
 		answer: {
 			lineNumber: 2,
 			errorType: "logic",
-			corrections: ["last4 = text.right(4)"],
-			explanation: "Use right() to get the last characters, not left().",
+			corrections: [
+				"last4 = text.right(4)",
+				"last4 = text.substring(text.length-4, 4)",
+				"last4 = text.substring(text.length - 4, 4)",
+			],
+			explanation:
+				"Use right() to get the last characters, left() is for the first characters.",
 		},
 		category: "strings",
 	},
 	{
 		description: "This program converts text to lowercase and displays it.",
 		code: [
-			'text = input("Enter text")',
+			'text = input("Enter text ")',
 			"lowerText = text.lowercase",
 			"print(lowerText)",
 		],
@@ -1473,21 +1485,36 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 	},
 	{
 		description:
-			"This program extracts a substring from position 2 to position 5 (inclusive) from a string.",
+			"This program extracts a substring from position 2 to position 4 (inclusive) from a string.",
 		code: [
-			'text = input("Enter text")',
-			"sub = text.substring(2 5)",
+			'text = input("Enter text ")',
+			"sub = text.substring(2, 4)",
 			"print(sub)",
 		],
 		answer: {
 			lineNumber: 2,
 			errorType: "syntax",
-			corrections: ["sub = text.substring(2, 5)"],
-			explanation: "Subprogram arguments must be separated by a comma.",
+			corrections: ["sub = text.substring(2, 3)"],
+			explanation: "Second argument is how many characters to extract.",
 		},
 		category: "strings",
 	},
-	// ========== ITERATION-FOR ==========
+	{
+		description:
+			"This program extracts a substring from position 2 to position 4 (inclusive) from a string.",
+		code: [
+			'text = input("Enter text ")',
+			"sub = text.substring(2 3)",
+			"print(sub)",
+		],
+		answer: {
+			lineNumber: 2,
+			errorType: "syntax",
+			corrections: ["sub = text.substring(2, 3)"],
+			explanation: "A comma is missing between the arguments.",
+		},
+		category: "strings",
+	}, // ========== ITERATION-FOR ==========
 	{
 		description:
 			"This program displays a welcome message three times using a loop.",
@@ -1504,7 +1531,8 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			explanation: "The string is missing its opening quote.",
 		},
 		category: "iteration-for",
-	},	{
+	},
+	{
 		description: "This program counts from 1 to 5 and displays each number.",
 		code: ["for i = 1 to 5", "    print(i)", "endfor", 'print("Done")'],
 		answer: {
@@ -1534,12 +1562,12 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 	},
 	{
 		description: "This program counts from 1 to 5 and displays each number.",
-		code: ["for i = 1 to 5", "    print(i)", "endfor", 'print("Done")'],
+		code: ["for i = 1 to 4", "    print(i)", "endfor", 'print("Done")'],
 		answer: {
-			lineNumber: 3,
-			errorType: "syntax",
-			corrections: ["next i"],
-			explanation: 'For loops should end with "next i" not "endfor".',
+			lineNumber: 1,
+			errorType: "logic",
+			corrections: ["for i = 1 to 5"],
+			explanation: "The loop should count to 5, not 4.",
 		},
 		category: "iteration-for",
 	},
@@ -1550,8 +1578,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			lineNumber: 1,
 			errorType: "syntax",
 			corrections: ["for i = 1 to 5"],
-			explanation:
-				'For loops should not have "do" after the range specification.',
+			explanation: 'For loops should not have "do" after the range.',
 		},
 		category: "iteration-for",
 	},
@@ -1568,7 +1595,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			errorType: "syntax",
 			corrections: ["next count"],
 			explanation:
-				'The loop variable name in "next" must match the one in the for statement.',
+				'The loop variable name in "count" must match the one in the for statement.',
 		},
 		category: "iteration-for",
 	},
@@ -1589,20 +1616,17 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program repeatedly asks for a password until the user enters 'admin123'.",
 		code: [
-			'password = input("Enter password")',
-			'while password != "admin123"',
-			'    password = input("Try again")',
+			'password = input("Enter password ")',
+			'while password = "admin123"',
+			'    password = input("Try again ")',
 			"endwhile",
 			'print("Access granted")',
 		],
 		answer: {
 			lineNumber: 2,
 			errorType: "syntax",
-			corrections: [
-				'while password != "admin123" do',
-				'while password != "admin123" then',
-			],
-			explanation: 'While loops require "do" or "then" after the condition.',
+			corrections: ['while password == "admin123"'],
+			explanation: "While loops require == for comparison.",
 		},
 		category: "iteration-while",
 	},
@@ -1610,28 +1634,126 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program repeatedly asks for a password until the user enters 'admin123'.",
 		code: [
-			'password = input("Enter password")',
-			'while password == "admin123" do',
-			'    password = input("Try again")',
+			'password = input("Enter password ")',
+			'while password == "admin123"',
+			'    password = input("Try again ")',
 			"endwhile",
 			'print("Access granted")',
 		],
 		answer: {
 			lineNumber: 2,
 			errorType: "logic",
-			corrections: ['while password != "admin123" do'],
+			corrections: ['while password != "admin123"'],
 			explanation:
 				'The loop should continue while the password is NOT equal (!=) to "admin123".',
 		},
 		category: "iteration-while",
 	},
-	// ========== ITERATION-DO-UNTIL ==========
+	{
+		description:
+			"This program counts down from 10 to 1 and then prints 'Blastoff!'.",
+		code: [
+			"counter = 10",
+			"while counter > 0",
+			"    print(counter)",
+			"    counter = counter + 1",
+			"endwhile",
+			'print("Blastoff!")',
+		],
+		answer: {
+			lineNumber: 4,
+			errorType: "logic",
+			corrections: ["    counter = counter - 1"],
+			explanation:
+				"The counter should decrease (counter - 1) not increase, otherwise the loop will run forever since counter will always be greater than 0.",
+		},
+		category: "iteration-while",
+	},
+	{
+		description:
+			"This program asks the user to guess a number until they guess correctly (the answer is 7).",
+		code: [
+			"secretNumber = 7",
+			'guess = input("Guess the number ")',
+			"while guess != secretNumber",
+			'    print("Wrong! Try again")',
+			"endwhile",
+			'print("Correct!")',
+		],
+		answer: {
+			lineNumber: 2,
+			errorType: "logic",
+			corrections: ['guess = int(input("Guess the number "))'],
+			explanation:
+				"The input needs to be converted to an integer using int() because input() returns a string, and comparing a string to the integer secretNumber will always be unequal.",
+		},
+		category: "iteration-while",
+	},
+	{
+		description:
+			"This program adds up all numbers from 1 to 5 and displays the total.",
+		code: [
+			"total = 1",
+			"number = 1",
+			"while number <= 5",
+			"    total = total + number",
+			"    number = number + 1",
+			"endwhile",
+			"print(total)",
+		],
+		answer: {
+			lineNumber: 1,
+			errorType: "logic",
+			corrections: ["total = 0"],
+			explanation:
+				"The total should be initialized to 0 to correctly sum the numbers.",
+		},
+		category: "iteration-while",
+	},
+	{
+		description:
+			"This program keeps asking for a positive number until the user enters one.",
+		code: [
+			'number = int(input("Enter a positive number "))',
+			"while number < 0",
+			'    number = int(input("That was negative. Try again "))',
+			"endwhile",
+			'print("Thank you!")',
+		],
+		answer: {
+			lineNumber: 2,
+			errorType: "logic",
+			corrections: ["while number <= 0"],
+			explanation:
+				'The condition should be "number <= 0" to reject both negative numbers AND zero, since zero is not positive.',
+		},
+		category: "iteration-while",
+	},
+	{
+		description:
+			"This program repeatedly asks for a password until the user enters 'admin123'.",
+		code: [
+			'password = input("Enter password ")',
+			'while password == "admin123"',
+			'    password = input("Try again ")',
+			"endwhile",
+			'print("Access granted")',
+		],
+		answer: {
+			lineNumber: 2,
+			errorType: "logic",
+			corrections: ['while password != "admin123"'],
+			explanation:
+				'The loop should continue while the password is NOT equal (!=) to "admin123".',
+		},
+		category: "iteration-while",
+	}, // ========== ITERATION-DO-UNTIL ==========
 	{
 		description:
 			"This program uses a do-until loop to keep asking for a number until the user enters a number greater than 10.",
 		code: [
 			"do",
-			'    num = input("Enter a number greater than 10")',
+			'    num = input("Enter a number greater than 10 ")',
 			"while num > 10",
 			'print("Thank you")',
 		],
@@ -1645,10 +1767,105 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 	},
 	{
 		description:
+			"This program uses a do-until loop to count from 1 to 5 and then stops.",
+		code: [
+			"counter = 1",
+			"do",
+			"    print(counter)",
+			"    counter = counter + 1",
+			"until counter == 5",
+			'print("Done")',
+		],
+		answer: {
+			lineNumber: 5,
+			errorType: "logic",
+			corrections: ["until counter > 5", "until counter == 6"],
+			explanation:
+				"The loop exits when counter equals 5, so it only prints 1 to 4. It should continue until counter is greater than 5 to print all numbers 1 to 5.",
+		},
+		category: "iteration-do-until",
+	},
+	{
+		description:
+			"This program keeps asking the user to enter 'yes' or 'no' until they enter one of these options.",
+		code: [
+			"do",
+			'    answer = input("Enter yes or no ")',
+			'until answer == "yes" AND answer == "no"',
+			'print("Valid answer received")',
+		],
+		answer: {
+			lineNumber: 3,
+			errorType: "logic",
+			corrections: ['until answer == "yes" OR answer == "no"'],
+			explanation:
+				'The answer cannot be both "yes" AND "no" at the same time. The condition should use OR to check if the answer is either "yes" or "no".',
+		},
+		category: "iteration-do-until",
+	},
+	{
+		description:
+			"This program asks for numbers and adds them to a total until the user enters 0.",
+		code: [
+			"total = 0",
+			"do",
+			'    num = int(input("Enter a number (0 to stop)"))',
+			"    total = total + num",
+			"until num != 0",
+			"print(total)",
+		],
+		answer: {
+			lineNumber: 5,
+			errorType: "logic",
+			corrections: ["until num == 0"],
+			explanation:
+				"The loop should stop when num equals 0, not when num is not equal to 0. The current condition makes the loop stop as soon as any non-zero number is entered.",
+		},
+		category: "iteration-do-until",
+	},
+	{
+		description:
+			"This program rolls a virtual dice (generates random numbers 1-6) until it rolls a 6.",
+		code: [
+			"do",
+			"    roll = random(1, 6)",
+			"    print(roll)",
+			"until roll < 6",
+			'print("You rolled a 6!")',
+		],
+		answer: {
+			lineNumber: 4,
+			errorType: "logic",
+			corrections: ["until roll == 6"],
+			explanation:
+				"The loop should continue until a 6 is rolled. The current condition (roll < 6) stops the loop for any roll less than 6, which means it could stop on 1, 2, 3, 4, or 5.",
+		},
+		category: "iteration-do-until",
+	},
+	{
+		description:
+			"This program asks for a password and keeps asking until the correct password 'secret' is entered.",
+		code: [
+			"do",
+			'    password = input("Enter password ")',
+			'until password = "secret"',
+			'print("Access granted")',
+		],
+		answer: {
+			lineNumber: 3,
+			errorType: "syntax",
+			corrections: ['until password == "secret"'],
+			explanation:
+				"The comparison operator should be == (equality check) not = (assignment operator).",
+		},
+		category: "iteration-do-until",
+	},
+	{
+		description:
 			"This program uses a do-until loop to keep asking for a number until the user enters a number greater than 10.",
 		code: [
 			"do",
-			'    num = input("Enter a number greater than 10")',
+			'    num = input("Enter a number greater than 10 ")',
 			"until num <= 10",
 			'print("Thank you")',
 		],
@@ -1665,9 +1882,9 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program repeatedly asks for a PIN until the user enters '1234'.",
 		code: [
-			'pin = input("Enter PIN")',
+			'pin = input("Enter PIN ")',
 			"do",
-			'    pin = input("Try again")',
+			'    pin = input("Try again ")',
 			'until pin = "1234"',
 			'print("Correct")',
 		],
@@ -1685,9 +1902,9 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program uses a switch statement to display a message based on the day of the week. For 'Mon' it should display 'Monday'.",
 		code: [
-			'day = input("Enter day")',
+			'day = input("Enter day ")',
 			"switch day:",
-			'    case "Mon"',
+			'    case "Mon:"',
 			'        print("Monday")',
 			'    case "Tue":',
 			'        print("Tuesday")',
@@ -1705,7 +1922,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program uses a switch statement to display a message based on the day of the week. For 'Mon' it should display 'Monday'.",
 		code: [
-			'day = input("Enter day")',
+			'day = input("Enter day ")',
 			"switch day:",
 			'    case "Mon":',
 			'        print("Monday")',
@@ -1726,8 +1943,8 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		description:
 			"This program uses a switch statement to display the number of days in a month.",
 		code: [
-			'month = input("Enter month")',
-			"switch month",
+			'month = input("Enter month ")',
+			"case month:",
 			'    case "Jan":',
 			'        print("31 days")',
 			'    case "Feb":',
@@ -1738,7 +1955,98 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			lineNumber: 2,
 			errorType: "syntax",
 			corrections: ["switch month:"],
-			explanation: "Switch statements require a colon after the variable.",
+			explanation: "Switch case must start with the switch keyword.",
+		},
+		category: "switch",
+	},
+	{
+		description:
+			"This program uses a switch statement to convert a grade letter to a description.",
+		code: [
+			'grade = input("Enter your grade ")',
+			"switch grade:",
+			'    case "A":',
+			'        print("Excellent")',
+			'    case "B":',
+			'        print("Good")',
+			'    case "C":',
+			'        print("Satisfactory")',
+			"endwhile",
+		],
+		answer: {
+			lineNumber: 9,
+			errorType: "syntax",
+			corrections: ["endswitch"],
+			explanation:
+				'Switch statements must end with "endswitch", not "endwhile".',
+		},
+		category: "switch",
+	},
+	{
+		description:
+			"This program uses a switch statement to display the price of different items. If the item is not found, it displays 'Item not found'.",
+		code: [
+			'item = input("Enter item ")',
+			"switch item:",
+			'    case "apple":',
+			'        print("£0.50")',
+			'    case "banana":',
+			'        print("£0.30")',
+			"    else:",
+			'        print("Item not found")',
+			"endswitch",
+		],
+		answer: {
+			lineNumber: 7,
+			errorType: "syntax",
+			corrections: ["default:"],
+			explanation:
+				'Switch statements must use "default:" for the fallback case.',
+		},
+		category: "switch",
+	},
+	{
+		description:
+			"This program uses a switch statement to display a response based on the user's menu choice.",
+		code: [
+			'choice = input("Enter choice (1-3)")',
+			"switch:",
+			'    case "1":',
+			'        print("Option 1 selected")',
+			'    case "2":',
+			'        print("Option 2 selected")',
+			'    case "3":',
+			'        print("Option 3 selected")',
+			"endswitch",
+		],
+		answer: {
+			lineNumber: 2,
+			errorType: "syntax",
+			corrections: ["switch choice:"],
+			explanation:
+				"The switch statement must specify which variable to evaluate (switch choice:).",
+		},
+		category: "switch",
+	},
+	{
+		description:
+			"This program uses a switch statement to convert traffic light colours to actions. Red means 'Stop', Amber means 'Prepare to stop', and Green means 'Go'.",
+		code: [
+			'light = input("Enter traffic light colour ")',
+			"switch light:",
+			'    case "red":',
+			'        print("Go")',
+			'    case "amber":',
+			'        print("Prepare to stop")',
+			'    case "green":',
+			'        print("Go")',
+			"endswitch",
+		],
+		answer: {
+			lineNumber: 4,
+			errorType: "logic",
+			corrections: ['print("Stop")'],
+			explanation: 'Red light means "Stop", not "Go".',
 		},
 		category: "switch",
 	},
@@ -1752,7 +2060,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			errorType: "logic",
 			corrections: ["scores[0] = 100"],
 			explanation:
-				"To assign to the first element (index 0), use scores[0] not scores[1].",
+				"Arrays are zero-indexed, so the first element is at index 0.",
 		},
 		category: "arrays",
 	},
@@ -1779,19 +2087,6 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			corrections: ["scores[0] = 100"],
 			explanation:
 				"Variable assignment uses = (single equals) not == (double equals for comparison).",
-		},
-		category: "arrays",
-	},
-	{
-		description:
-			"This program creates a 2D array for storing a 3x3 grid and sets position [0,0] to 'X'.",
-		code: ["array grid[3][3]", 'grid[0,0] = "X"', "print(grid[0,0])"],
-		answer: {
-			lineNumber: 1,
-			errorType: "syntax",
-			corrections: ["array grid[3, 3]"],
-			explanation:
-				"Array dimensions should be separated by a comma, not separate brackets.",
 		},
 		category: "arrays",
 	},
@@ -1889,8 +2184,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			lineNumber: 3,
 			errorType: "syntax",
 			corrections: ["return result", "return (result)"],
-			explanation:
-				"The return statement needs to return the correct variable.",
+			explanation: "The return statement needs to return the correct variable.",
 		},
 		category: "subprograms",
 	},
@@ -1910,6 +2204,25 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			errorType: "syntax",
 			corrections: ["next i"],
 			explanation: 'For loops should end with "next i" not "endfor".',
+		},
+		category: "subprograms",
+	},
+	{
+		description:
+			"This program creates a procedure that displays 'Hello World' three times.",
+		code: [
+			"procedure greet()",
+			"    for i = 1 to 3",
+			'        print("Hello World")',
+			"    endfor",
+			"endprocedure",
+			"greet",
+		],
+		answer: {
+			lineNumber: 6,
+			errorType: "syntax",
+			corrections: ["greet()"],
+			explanation: "Procedure calls require brackets, even with no parameters.",
 		},
 		category: "subprograms",
 	},
@@ -1985,7 +2298,8 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			lineNumber: 5,
 			errorType: "syntax",
 			corrections: ["f.close()"],
-			explanation: "The close subprogram needs brackets to be called correctly.",
+			explanation:
+				"The close subprogram needs brackets to be called correctly.",
 		},
 		category: "files",
 	},
@@ -2010,7 +2324,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			"This program opens a file called 'data.txt', reads all lines from it, and displays them.",
 		code: [
 			'f = open("data.txt")',
-			"while NOT f.endOfFile() do",
+			"while NOT f.endOfFile()",
 			"    print(f.readLine())",
 			"enddo",
 			"f.close()",
@@ -2028,7 +2342,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			"This program opens a file called 'data.txt', reads all lines from it, and displays them.",
 		code: [
 			'f = open("data.txt")',
-			"while NOT f.endOfFile() do",
+			"while NOT f.endOfFile()",
 			"    line = f.readLine()",
 			"    print(line)",
 			"endwhile",

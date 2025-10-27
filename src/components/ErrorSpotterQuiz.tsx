@@ -461,7 +461,7 @@ export function ErrorSpotterQuiz({
 									key={`line-${index}-${line.substring(0, 20)}`}
 									className="flex mb-1"
 								>
-									<span className="text-foreground/60 dark:text-code-line-number min-w-[40px] text-right pr-4 border-r-2 border-border mr-4 select-none">
+									<span className="text-foreground/60 dark:text-code-line-number min-w-10 text-right pr-4 border-r-2 border-border mr-4 select-none">
 										{String(index + 1).padStart(2, "0")}
 									</span>
 									<span className="whitespace-pre text-foreground dark:text-code-display-text">
@@ -476,7 +476,7 @@ export function ErrorSpotterQuiz({
 							rel="noopener noreferrer"
 							className="absolute top-2 right-2 px-3 py-1.5 text-xs font-medium bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors shadow-md"
 						>
-							Reference Guide
+							See in IDE
 						</a>
 					</div>{" "}
 					{/* Input Form */}
