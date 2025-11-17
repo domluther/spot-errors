@@ -545,7 +545,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		answer: {
 			lineNumber: 3,
 			errorType: "logic",
-			corrections: ["result = base ^ exponent"],
+			corrections: ["result = base ^ power"],
 			explanation: "The power operator is ^ (caret), not + (addition).",
 		},
 		category: "operators",
