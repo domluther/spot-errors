@@ -101,7 +101,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			'print("Average is " + averge)',
 		],
 		answer: {
-			lineNumber: 6,
+			lineNumber: 5,
 			errorType: "syntax",
 			corrections: ['print("Average is " + average)'],
 			explanation: 'The variable name "average" is misspelled as "averge".',
