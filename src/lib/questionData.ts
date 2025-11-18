@@ -419,7 +419,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			'score2 = int(input("Enter score 2 "))',
 			'score3 = int(input("Enter score 3 "))',
 			"average = (score1 + score2 + score3) * 3",
-			'print("Average is " + average")',
+			'print("Average is " + average)',
 		],
 		answer: {
 			lineNumber: 4,
@@ -438,7 +438,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			'score2 = int(input("Enter score 2 "))',
 			'score3 = int(input("Enter score 3 "))',
 			"average = (score1 + score2 + score3) / 3",
-			'print("Average is " + average")',
+			'print("Average is " + average)',
 		],
 		answer: {
 			lineNumber: 1,
@@ -456,7 +456,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			'score2 = int(input("Enter score 2 "))',
 			'score3 = int(input("Enter score 3 "))',
 			"average = (score1 + score1 + score1) * 3",
-			'print("Average is " + average")',
+			'print("Average is " + average)',
 		],
 		answer: {
 			lineNumber: 4,
@@ -475,7 +475,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			'score2 = int(input("Enter score 2 "))',
 			'score3 = int(input("Enter score 3 "))',
 			"average = score1 + score2 + score3 / 3",
-			'print("Average is " + average")',
+			'print("Average is " + average)',
 		],
 		answer: {
 			lineNumber: 4,
