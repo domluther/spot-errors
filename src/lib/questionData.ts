@@ -130,7 +130,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			"This program creates a constant for VAT rate (20%) and calculates the VAT on a price, then displays the total price including VAT.",
 		code: [
 			"const VAT = 0.2",
-			'price = int(input("Enter price "))',
+			'price = float(input("Enter price "))',
 			"vatAmount = price * VAT",
 			"total = price + vatAmount",
 			'print("Total with VAT is " + totl)',
@@ -210,7 +210,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		],
 		answer: {
 			lineNumber: 3,
-			errorType: "syntax",
+			errorType: "logic",
 			corrections: ['print("ASCII code is " + code)'],
 			explanation: "The variable code should not have speech marks around it.",
 		},
@@ -399,7 +399,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 		code: [
 			'price = float(input("Enter price "))',
 			"price / 10 = discount",
-			"newprice = discount - price",
+			"newprice = price - discount",
 			'print("Discounted price is " + newprice)',
 		],
 		answer: {
@@ -595,7 +595,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			"This program calculates the area of a circle using the formula π × r².",
 		code: [
 			"const pi = 3.14",
-			'radius = input("Enter radius ")',
+			'radius = float(input("Enter radius "))',
 			"area = pi * radius",
 			'print("Area is " + area)',
 		],
@@ -629,7 +629,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 	{
 		description:
 			"This program casts a boolean value True to a string and displays it.",
-		code: ["value = True", "strValue = int(value)", "print(strValue)"],
+		code: ["value = true", "strValue = int(value)", "print(strValue)"],
 		answer: {
 			lineNumber: 2,
 			errorType: "logic",
@@ -656,7 +656,7 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 			"This program creates a constant for VAT rate (20%) and calculates the VAT on a price, then displays the total price including VAT.",
 		code: [
 			"VAT = 0.2",
-			'price = input("Enter price ")',
+			'price = float(input("Enter price "))',
 			"vatAmount = price * VAT",
 			"total = price + vatAmount",
 			'print("Total with VAT is " + total)',
@@ -672,13 +672,13 @@ export const errorSpotterQuestions: ErrorSpotterQuestion[] = [
 	{
 		description:
 			"This program casts a boolean value True to a string and displays it.",
-		code: ["value = True", "strValue = int(value)", "print(strValue)"],
+		code: ["value = true", "strValue = str(value)", "print(strvalue)"],
 		answer: {
-			lineNumber: 2,
-			errorType: "logic",
-			corrections: ["strValue = str(value)"],
+			lineNumber: 3,
+			errorType: "syntax",
+			corrections: ["print(strValue)"],
 			explanation:
-				"Use str() to cast to a string, not int() which casts to an integer.",
+				"The variable name is case-sensitive; it should be 'strValue' not 'strvalue'.",
 		},
 		category: "variables",
 	},
