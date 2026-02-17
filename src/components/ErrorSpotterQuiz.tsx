@@ -68,6 +68,7 @@ export function ErrorSpotterQuiz({
 }: ErrorSpotterQuizProps) {
 	const lineNumberRef = useRef<HTMLInputElement>(null);
 	const feedbackRef = useRef<HTMLDivElement>(null);
+	const nextQuestionButtonRef = useRef<HTMLButtonElement>(null);
 	const lineNumberId = useId();
 	const errorTypeId = useId();
 	const correctionId = useId();
@@ -156,10 +157,10 @@ export function ErrorSpotterQuiz({
 		generateQuestion();
 	}, [generateQuestion]);
 
-	// Focus feedback section when it appears
+	// Focus next question button when feedback appears
 	useEffect(() => {
-		if (showFeedback && feedbackRef.current) {
-			feedbackRef.current.focus();
+		if (showFeedback && nextQuestionButtonRef.current) {
+			nextQuestionButtonRef.current.focus();
 		}
 	}, [showFeedback]);
 
@@ -567,6 +568,7 @@ export function ErrorSpotterQuiz({
 								</Button>
 							) : (
 								<Button
+									ref={nextQuestionButtonRef}
 									onClick={generateQuestion}
 									className="flex-1 bg-action-button-bg hover:bg-action-button-bg-hover text-action-button-text"
 								>
@@ -580,6 +582,7 @@ export function ErrorSpotterQuiz({
 						<section
 							aria-label="Answer feedback"
 							ref={feedbackRef}
+							tabIndex={-1}
 							onKeyDown={(e) => {
 								if (e.key === "Enter") {
 									e.preventDefault();
